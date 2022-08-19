@@ -5,6 +5,8 @@ module.exports = {
     "./resources/views/**/*.blade.php",
     "./resources/**/*.js",
     "./resources/**/*.vue",
+    './src/**/*.{html,js}', 
+    './node_modules/tw-elements/dist/js/**/*.js'
   ],
   theme: {
     extend: {},
@@ -12,5 +14,7 @@ module.exports = {
   variants: {
     extend: {},
   },
-  plugins: [],
+  plugins: [
+    require('tw-elements/dist/plugin')
+  ],
 }

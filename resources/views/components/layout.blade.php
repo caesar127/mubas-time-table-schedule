@@ -7,9 +7,8 @@
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <script type="text/javascript" src="{{ asset('js/app.js') }}"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+        @vite('resources/js/app.js')
         @vite('resources/css/app.css')
         <style>
             body {
@@ -42,7 +41,7 @@
                         </div>
                         <ul class="mt-6 space-y-2 tracking-wide">
                             <li class="min-w-max">
-                                <a href="#" aria-label="dashboard" class="relative flex items-center space-x-4 bg-gradient-to-r from-sky-600 to-cyan-400 px-4 py-3 text-white">
+                                <a href="#" aria-label="dashboard" class="relative flex items-center space-x-4 px-4 py-3 text-gray-600" >
                                     <svg class="-ml-1 h-6 w-6" viewBox="0 0 24 24" fill="none">
                                         <path d="M6 8a2 2 0 0 1 2-2h1a2 2 0 0 1 2 2v1a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2V8ZM6 15a2 2 0 0 1 2-2h1a2 2 0 0 1 2 2v1a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2v-1Z" class="fill-current text-cyan-400 dark:fill-slate-600"></path>
                                         <path d="M13 8a2 2 0 0 1 2-2h1a2 2 0 0 1 2 2v1a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2V8Z" class="fill-current text-cyan-200 group-hover:text-cyan-300"></path>
@@ -52,7 +51,7 @@
                                 </a>
                             </li>
                             <li class="min-w-max">
-                                <a href="#" class="bg group flex items-center space-x-4 rounded-full px-4 py-3 text-gray-600">
+                                <a href="#" class="bg group flex items-center space-x-4 px-4 py-3 text-gray-600">
                                     <svg class="-ml-1 h-6 w-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                                         <path class="fill-current text-gray-600 group-hover:text-cyan-600" d="M18,16H6c-1.657,0-3-1.343-3-3V6c0-1.657,1.343-3,3-3h12c1.657,0,3,1.343,3,3v7C21,14.657,19.657,16,18,16z" opacity=".35" fill="#5B5B5B" />
                                         <circle cx="6.5" cy="4.5" r="2.5" fill="#5B5B5B" />
@@ -63,7 +62,7 @@
                                 </a>
                             </li>
                             <li class="min-w-max">
-                                <a href="#" class="bg group flex items-center space-x-4 rounded-full px-4 py-3 text-gray-600">
+                                <a href="#" class="bg group flex items-center space-x-4 px-4 py-3 text-gray-600">
                                     <svg  class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                                         <path class="fill-current text-gray-600 group-hover:text-cyan-600" d="M22,18.092V18c0-0.552-0.448-1-1-1h-1v-7h0.5c0.702,0,1.311-0.487,1.464-1.173s-0.189-1.385-0.825-1.685l-8.5-4c-0.405-0.19-0.873-0.19-1.277,0l-8.5,4c-0.636,0.3-0.979,1-0.826,1.685S2.798,10,3.5,10H4v7H3c-0.552,0-1,0.448-1,1v0.092c-0.581,0.207-1,0.756-1,1.408C1,20.328,1.672,21,2.5,21h19c0.828,0,1.5-0.672,1.5-1.5C23,18.848,22.581,18.298,22,18.092z" opacity=".35" fill="#5B5B5B" />
                                         <rect width="2" height="6.999" x="11" y="10" fill="#5B5B5B" />
@@ -77,7 +76,7 @@
                                 </a>
                             </li>
                             <li class="min-w-max">
-                                <a href="#" class="bg group flex items-center space-x-4 rounded-full px-4 py-3 text-gray-600">
+                                <a href="#" class="bg group flex items-center space-x-4 px-4 py-3 text-white" style="background:#0184CC">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="-ml-1 h-6 w-6" viewBox="0 0 24 24">
                                         <path class="fill-current text-gray-300 group-hover:text-cyan-300"  d="M19,4h-4.021C13.334,4,12,5.334,12,6.979l0,0v0C12,5.334,10.666,4,9.021,4H5C3.343,4,2,5.343,2,7v10c0,1.657,1.343,3,3,3h5.277c0.346,0.595,0.984,1,1.723,1s1.376-0.405,1.723-1H19c1.657,0,3-1.343,3-3V7C22,5.343,20.657,4,19,4z" opacity=".35" fill="#5B5B5B" />
                                         <path class="fill-current text-gray-300 group-hover:text-cyan-300"  d="M6,9H5C4.447,9,4,8.552,4,8s0.447-1,1-1h1c0.553,0,1,0.448,1,1S6.553,9,6,9z" fill="#5B5B5B" />
@@ -95,7 +94,7 @@
                                 </a>
                             </li>
                             <li class="min-w-max">
-                                <a href="#" class="bg group flex items-center space-x-4 rounded-full px-4 py-3 text-gray-600">
+                                <a href="#" class="bg group flex items-center space-x-4 px-4 py-3 text-gray-600">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="-ml-1 h-6 w-6" viewBox="0 0 24 24">
                                         <path class="fill-current text-gray-300 group-hover:text-cyan-300" d="M7.5,21h-4C2.672,21,2,20.328,2,19.5v-15C2,3.672,2.672,3,3.5,3h4C8.328,3,9,3.672,9,4.5v15C9,20.328,8.328,21,7.5,21z" opacity=".35" fill="#5B5B5B" />
                                         <path class="fill-current text-gray-300 group-hover:text-cyan-300" d="M20.5,21.75h-4c-0.828,0-1.5-1.422-1.5-2.25v-12C15,6.672,15.672,6,16.5,6h4C21.328,6,22,6.672,22,7.5v12C22,20.328,21.328,21.75,20.5,21.75z" opacity=".35" fill="#5B5B5B" />
@@ -112,7 +111,7 @@
                                 </a>
                             </li>
                             <li class="min-w-max">
-                                <a href="#" class="bg group flex items-center space-x-4 rounded-full px-4 py-3 text-gray-600">
+                                <a href="#" class="bg group flex items-center space-x-4 px-4 py-3 text-gray-600">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="-ml-1 h-6 w-6" viewBox="0 0 24 24">
                                         <path class="fill-current text-gray-600 group-hover:text-cyan-600" d="M18,21H6c-1.657,0-3-1.343-3-3V7h18v11C21,19.657,19.657,21,18,21z" opacity=".35"  />
                                         <path class="fill-current text-gray-600 group-hover:text-cyan-600" d="M18,3H6C4.343,3,3,4.343,3,6v1h18V6C21,4.343,19.657,3,18,3z"  />
@@ -131,7 +130,7 @@
                                 </a>
                             </li>
                             <li class="min-w-max">
-                                <a href="#" class="bg group flex items-center space-x-4 rounded-full px-4 py-3 text-gray-600">
+                                <a href="#" class="bg group flex items-center space-x-4 px-4 py-3 text-gray-600">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="-ml-1 h-6 w-6" viewBox="0 0 24 24">
                                     <path class="fill-current text-gray-600 group-hover:text-cyan-600" d="M18,21H6c-1.657,0-3-1.343-3-3V6c0-1.657,1.343-3,3-3h12c1.657,0,3,1.343,3,3v12C21,19.657,19.657,21,18,21z" opacity=".35"  />
                                     <path class="fill-current text-gray-300 group-hover:text-cyan-300" d="M20.5,21h-17C2.671,21,2,20.329,2,19.5S2.671,18,3.5,18h17c0.829,0,1.5,0.671,1.5,1.5S21.329,21,20.5,21z"  />
@@ -142,7 +141,7 @@
                                 </a>
                             </li>
                             <li class="min-w-max">
-                                <a href="#" class="bg group flex items-center space-x-4 rounded-full px-4 py-3 text-gray-600">
+                                <a href="#" class="bg group flex items-center space-x-4 px-4 py-3 text-gray-600">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="-ml-1 h-6 w-6" viewBox="0 0 24 24">
                                         <path class="fill-current text-gray-600 group-hover:text-cyan-600" d="M18,12V5l-6-2L6,5v7l-2,0.667V20c0,1.105,0.895,2,2,2h12c1.105,0,2-0.895,2-2v-7.333L18,12z" opacity=".35"  />
                                         <path class="fill-current text-gray-300 group-hover:text-cyan-300" d="M13,22h-2v-4h2V22z"  />
