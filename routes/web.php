@@ -17,6 +17,10 @@ Route::get('/', function () {
     return view('landing');
 });
 
+Route::get('/lecturer', function () {
+    return view('lecturer');
+});
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 });
