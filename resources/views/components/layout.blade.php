@@ -41,7 +41,7 @@
                         </div>
                         <ul class="mt-6 space-y-2 tracking-wide">
                             <li class="min-w-max">
-                                <a href="#" aria-label="dashboard" class="relative flex items-center space-x-4 px-4 py-3 text-gray-600" >
+                                <a href="/" aria-label="dashboard" class="relative flex items-center space-x-4 px-4 py-3 text-gray-600" >
                                     <svg class="-ml-1 h-6 w-6" viewBox="0 0 24 24" fill="none">
                                         <path d="M6 8a2 2 0 0 1 2-2h1a2 2 0 0 1 2 2v1a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2V8ZM6 15a2 2 0 0 1 2-2h1a2 2 0 0 1 2 2v1a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2v-1Z" class="fill-current text-cyan-400 dark:fill-slate-600"></path>
                                         <path d="M13 8a2 2 0 0 1 2-2h1a2 2 0 0 1 2 2v1a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2V8Z" class="fill-current text-cyan-200 group-hover:text-cyan-300"></path>
@@ -51,7 +51,7 @@
                                 </a>
                             </li>
                             <li class="min-w-max">
-                                <a href="#" class="bg group flex items-center space-x-4 px-4 py-3 text-gray-600">
+                                <a href="lecturer" class="bg group flex items-center space-x-4 px-4 py-3 text-gray-600">
                                     <svg class="-ml-1 h-6 w-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                                         <path class="fill-current text-gray-600 group-hover:text-cyan-600" d="M18,16H6c-1.657,0-3-1.343-3-3V6c0-1.657,1.343-3,3-3h12c1.657,0,3,1.343,3,3v7C21,14.657,19.657,16,18,16z" opacity=".35" fill="#5B5B5B" />
                                         <circle cx="6.5" cy="4.5" r="2.5" fill="#5B5B5B" />
@@ -76,7 +76,7 @@
                                 </a>
                             </li>
                             <li class="min-w-max">
-                                <a href="#" class="bg group flex items-center space-x-4 px-4 py-3 text-white" style="background:#0184CC">
+                                <a href="department" class="bg group flex items-center space-x-4 px-4 py-3 text-white" style="background:#0184CC">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="-ml-1 h-6 w-6" viewBox="0 0 24 24">
                                         <path class="fill-current text-gray-300 group-hover:text-cyan-300"  d="M19,4h-4.021C13.334,4,12,5.334,12,6.979l0,0v0C12,5.334,10.666,4,9.021,4H5C3.343,4,2,5.343,2,7v10c0,1.657,1.343,3,3,3h5.277c0.346,0.595,0.984,1,1.723,1s1.376-0.405,1.723-1H19c1.657,0,3-1.343,3-3V7C22,5.343,20.657,4,19,4z" opacity=".35" fill="#5B5B5B" />
                                         <path class="fill-current text-gray-300 group-hover:text-cyan-300"  d="M6,9H5C4.447,9,4,8.552,4,8s0.447-1,1-1h1c0.553,0,1,0.448,1,1S6.553,9,6,9z" fill="#5B5B5B" />
@@ -184,7 +184,7 @@
                         </a>
                     </div>
                 </section>
-                <section style="margin: 50px; display:flex;">
+                <section style="margin-left: 50px; margin-right: 50px; display:flex;">
                     @yield('content')
                 </section>
             </section>
