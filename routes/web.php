@@ -1,5 +1,6 @@
 <?php
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ModuleController;
 use App\Http\Controllers\FacultyController;
 use App\Http\Controllers\LecturerController;
 use App\Http\Controllers\DepartmentController;

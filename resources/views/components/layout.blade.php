@@ -113,7 +113,7 @@
                                 </a>
                             </li> --}}
                             <li class="min-w-max">
-                                <a href="#" class="bg group flex items-center space-x-4 px-4 py-3 text-gray-600">
+                                <a href="module" class="bg group flex items-center space-x-4 px-4 py-3 text-gray-600">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="-ml-1 h-6 w-6" viewBox="0 0 24 24">
                                         <path class="fill-current text-gray-300 group-hover:text-cyan-300" d="M7.5,21h-4C2.672,21,2,20.328,2,19.5v-15C2,3.672,2.672,3,3.5,3h4C8.328,3,9,3.672,9,4.5v15C9,20.328,8.328,21,7.5,21z" opacity=".35" fill="#5B5B5B" />
                                         <path class="fill-current text-gray-300 group-hover:text-cyan-300" d="M20.5,21.75h-4c-0.828,0-1.5-1.422-1.5-2.25v-12C15,6.672,15.672,6,16.5,6h4C21.328,6,22,6.672,22,7.5v12C22,20.328,21.328,21.75,20.5,21.75z" opacity=".35" fill="#5B5B5B" />
