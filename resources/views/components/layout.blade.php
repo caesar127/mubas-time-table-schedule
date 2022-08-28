@@ -32,8 +32,7 @@
         </style>
     </head>
     <body class="antialiased" style="background: #F3F3F3;">
-        <div class="min-h-screen" style="
-        display: flex; background: #F3F3F3;">
+        <div class="min-h-screen" style="display: flex; background: #F3F3F3;">
             <div class="sidebar bg-white min-h-screen w-[14rem] overflow-hidden border-r hover:w-56 hover:bg-white hover:shadow-lg">
                 <div class="flex h-screen flex-col justify-between pt-2 pb-6">
                     <div>
@@ -160,7 +159,7 @@
                                 </a>
                             </li>
                             <li class="min-w-max">
-                                <a href="#" class="bg group flex items-center space-x-4 px-4 py-3 text-gray-600">
+                                <a href="room" class="bg group flex items-center space-x-4 px-4 py-3 text-gray-600">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="-ml-1 h-6 w-6" viewBox="0 0 24 24">
                                         <path class="fill-current text-gray-600 group-hover:text-cyan-600" d="M18,12V5l-6-2L6,5v7l-2,0.667V20c0,1.105,0.895,2,2,2h12c1.105,0,2-0.895,2-2v-7.333L18,12z" opacity=".35"  />
                                         <path class="fill-current text-gray-300 group-hover:text-cyan-300" d="M13,22h-2v-4h2V22z"  />
@@ -192,9 +191,9 @@
             <section class="page-content" style="width: 100%">
                 <x-flash-message />
                 <section class="search-and-user" style="display: flex; justify-content: space-between;  background: #ffffff00;">
-                    <form class="search">
-                        <div class="form-group mb-6">
-                            <input type="text" style="background: #fdfdfd; border: none;" class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border-gray-300 rounded transition ease-in-out m-2 focus:text-gray-700" name="name" placeholder="Search">
+                    <form class="search" style="margin-left: 1.5em; margin-top: 1em">
+                        <div class="form-group mb-6" hidden>
+                            <input type="text" style="background: #fdfdfd; border: none;" class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border-gray-300 rounded transition ease-in-out m-2 focus:text-gray-700" name="name" placeholder="Search" >
                             @error('name')
                             <p class="text-red-5000 text-xs mt-1">{{$message}}</p>
                             @enderror

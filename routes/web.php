@@ -1,5 +1,6 @@
 <?php
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\RoomController;
 use App\Http\Controllers\ModuleController;
 use App\Http\Controllers\ClassesController;
 use App\Http\Controllers\FacultyController;
@@ -46,5 +47,5 @@ Route::resource('/classes', ClassesController::class);
 Route::resource('/classes/create', ClassesController::class)->only(['store']);
 
 // Rooms Routes
-Route::resource('/module', ModuleController::class);
-Route::resource('/module/create', ModuleController::class)->only(['store']);
+Route::resource('/room', RoomController::class);
+Route::resource('/room/create', RoomController::class)->only(['store']);
