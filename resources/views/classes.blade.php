@@ -4,9 +4,9 @@
 </style>
 <div style="background: #fff; height: 450px; width: 100%; border-radius: 20px; margin-top:50px;">
     <div style="justify-content: space-between; display: flex; padding: 10px;">
-        <h1 style="font-weight: 500; font-size: x-large; color: #545454;">Module</h1>
+        <h1 style="font-weight: 500; font-size: x-large; color: #545454;">Classes</h1>
         <button type="button" class="inline-block px-6 py-2.5 bg-blue-500 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-600 hover:shadow-lg focus:bg-blue-600 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-600 active:shadow-lg transition duration-150 ease-in-out" data-bs-toggle="modal" data-bs-target="#exampleModalCenter" style="background: #0184CC">
-          New Module
+          New Class
         </button>
     </div>
     
@@ -15,35 +15,39 @@
         <div class="modal-content border-none shadow-lg relative flex flex-col w-full pointer-events-auto bg-white bg-clip-padding rounded-md outline-none text-current">
           <div class="modal-header flex flex-shrink-0 items-center justify-between p-4 border-b border-gray-200 rounded-t-md">
             <h5 class="text-xl font-medium leading-normal text-gray-800" id="exampleModalScrollableLabel">
-              New Module
+              New Class
             </h5>
             <button type="button"
               class="btn-close box-content w-4 h-4 p-1 text-black border-none rounded-none opacity-50 focus:shadow-none focus:outline-none focus:opacity-100 hover:text-black hover:opacity-75 hover:no-underline"
               data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body relative p-4">
-            <form class="" action="/module/create" method="POST">
+            <form class="" action="/faculty/create" method="POST">
                 @csrf
-                <div class="form-group mb-6"><input type="text" class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" name="module_code" placeholder="Module Code">
-                  @error('module_code')
+                <div class="form-group mb-6"><input type="text" class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" name="class_code" placeholder="Class Code">
+                  @error('class_code')
                   <p class="text-red-5000 text-xs mt-1">{{$message}}</p>
                   @enderror
                 </div>
-                <div class="form-group mb-6"><input type="text" class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" name="module_name" placeholder="Module Name">
-                    @error('module_name')
-                    <p class="text-red-5000 text-xs mt-1">{{$message}}</p>
-                    @enderror
-                </div>
-                <div class="form-group mb-6"><input type="text" class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" name="lecturer" placeholder="Lecturer">
-                  @error('lecturer')
+                <div class="form-group mb-6"><input type="text" class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" name="name" placeholder="Name">
+                  @error('name')
                   <p class="text-red-5000 text-xs mt-1">{{$message}}</p>
                   @enderror
                 </div>
-                <div class="form-check mb-6">
-                    <input class="form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer" type="checkbox" value="" id="flexCheckDefault">
-                    <label class="form-check-label inline-block text-gray-800" for="flexCheckDefault">
-                      Exam
-                    </label>
+                <div class="form-group mb-6"><input type="text" class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" name="department" placeholder="Department">
+                  @error('department')
+                  <p class="text-red-5000 text-xs mt-1">{{$message}}</p>
+                  @enderror
+                </div>
+                <div class="form-group mb-6"><input type="text" class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" name="students" placeholder="Students">
+                  @error('students')
+                  <p class="text-red-5000 text-xs mt-1">{{$message}}</p>
+                  @enderror
+                </div>
+                <div class="form-group mb-6"><input type="text" class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" name="status" placeholder="Status">
+                  @error('status')
+                  <p class="text-red-5000 text-xs mt-1">{{$message}}</p>
+                  @enderror
                 </div>
                 <button type="submit" class=" w-full px-6 py-3.5 bg-blue-500 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-500 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out" style="background: #0184CC">ADD</button>
               </form>
@@ -51,6 +55,8 @@
         </div>
       </div>
     </div>
+
+
 
     <div style="padding: 10px">
       <div class="flex flex-col">
@@ -60,10 +66,11 @@
               <table class="min-w-full text-center">
                 <thead class=" bg-gray-50">
                   <tr>
-                    <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4">Module Code</th>
+                    <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4">Class Code</th>
                     <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4">Name</th>
-                    <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4">Lecturer</th>
-                    <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4">Exam</th>
+                    <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4">Department</th>
+                    <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4">Students</th>
+                    <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4">Status</th>
                     <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4">Action</th>
                   </tr>
                 </thead class="">
@@ -77,7 +84,10 @@
                           3
                         </td>
                         <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                          3
+                            Mark
+                        </td>
+                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                            3
                         </td>
                         <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                           <div class="flex justify-center">
@@ -113,7 +123,10 @@
                         3
                     </td>
                     <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                      3
+                        Mark
+                    </td>
+                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                        3
                     </td>
                     <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                         <div class="flex justify-center">
@@ -149,7 +162,10 @@
                           3
                         </td>
                         <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                          3
+                            Mark
+                        </td>
+                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                            3
                         </td>
                         <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                           <div class="flex justify-center">

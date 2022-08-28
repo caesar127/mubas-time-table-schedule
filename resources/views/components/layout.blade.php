@@ -149,7 +149,7 @@
                                 </a>
                             </li>
                             <li class="min-w-max">
-                                <a href="#" class="bg group flex items-center space-x-4 px-4 py-3 text-gray-600">
+                                <a href="classes" class="bg group flex items-center space-x-4 px-4 py-3 text-gray-600">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="-ml-1 h-6 w-6" viewBox="0 0 24 24">
                                     <path class="fill-current text-gray-600 group-hover:text-cyan-600" d="M18,21H6c-1.657,0-3-1.343-3-3V6c0-1.657,1.343-3,3-3h12c1.657,0,3,1.343,3,3v12C21,19.657,19.657,21,18,21z" opacity=".35"  />
                                     <path class="fill-current text-gray-300 group-hover:text-cyan-300" d="M20.5,21h-17C2.671,21,2,20.329,2,19.5S2.671,18,3.5,18h17c0.829,0,1.5,0.671,1.5,1.5S21.329,21,20.5,21z"  />
