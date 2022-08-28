@@ -1,3 +1,3 @@
-@extends('layout')
+@extends('dashboardlayout')
 @section('content')
 @endsection

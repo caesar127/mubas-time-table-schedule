@@ -63,7 +63,7 @@
                                 </a>
                             </li>
                             <li class="min-w-max">
-                                <a href="faculty" class="bg group flex items-center space-x-4 px-4 py-3 text-gray-600">
+                                <a href="#" class="bg group flex items-center space-x-4 px-4 py-3 text-gray-600">
                                     <svg  class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                                         <path class="fill-current text-gray-600 group-hover:text-cyan-600" d="M22,18.092V18c0-0.552-0.448-1-1-1h-1v-7h0.5c0.702,0,1.311-0.487,1.464-1.173s-0.189-1.385-0.825-1.685l-8.5-4c-0.405-0.19-0.873-0.19-1.277,0l-8.5,4c-0.636,0.3-0.979,1-0.826,1.685S2.798,10,3.5,10H4v7H3c-0.552,0-1,0.448-1,1v0.092c-0.581,0.207-1,0.756-1,1.408C1,20.328,1.672,21,2.5,21h19c0.828,0,1.5-0.672,1.5-1.5C23,18.848,22.581,18.298,22,18.092z" opacity=".35" fill="#5B5B5B" />
                                         <rect width="2" height="6.999" x="11" y="10" fill="#5B5B5B" />
@@ -77,7 +77,7 @@
                                 </a>
                             </li>
                             <li class="min-w-max">
-                                <a href="department" class="bg group flex items-center space-x-4 px-4 py-3 text-gray-600">
+                                <a href="#" class="bg group flex items-center space-x-4 px-4 py-3 text-gray-600">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="-ml-1 h-6 w-6" viewBox="0 0 24 24">
                                         <path class="fill-current text-gray-300 group-hover:text-cyan-300"  d="M19,4h-4.021C13.334,4,12,5.334,12,6.979l0,0v0C12,5.334,10.666,4,9.021,4H5C3.343,4,2,5.343,2,7v10c0,1.657,1.343,3,3,3h5.277c0.346,0.595,0.984,1,1.723,1s1.376-0.405,1.723-1H19c1.657,0,3-1.343,3-3V7C22,5.343,20.657,4,19,4z" opacity=".35" fill="#5B5B5B" />
                                         <path class="fill-current text-gray-300 group-hover:text-cyan-300"  d="M6,9H5C4.447,9,4,8.552,4,8s0.447-1,1-1h1c0.553,0,1,0.448,1,1S6.553,9,6,9z" fill="#5B5B5B" />
@@ -193,12 +193,7 @@
                 <x-flash-message />
                 <section class="search-and-user" style="display: flex; justify-content: space-between;  background: #ffffff00;">
                     <form class="search">
-                        <div class="form-group mb-6">
-                            <input type="text" style="background: #fdfdfd; border: none;" class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border-gray-300 rounded transition ease-in-out m-2 focus:text-gray-700" name="name" placeholder="Search">
-                            @error('name')
-                            <p class="text-red-5000 text-xs mt-1">{{$message}}</p>
-                            @enderror
-                        </div>
+                        
                     </form>
                     <div class="admin-profile" style="display: flex; padding:5px;">
                         <a href="" >
