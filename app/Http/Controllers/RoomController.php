@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\lecturer;
+use App\Models\room;
 use Illuminate\Http\Request;
 
-class LecturerController extends Controller
+class RoomController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,7 @@ class LecturerController extends Controller
      */
     public function index()
     {
-        return view('lecturer');
+        //
     }
 
     /**
@@ -36,13 +36,15 @@ class LecturerController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
+            'room_code'=>'required',
             'name'=>'required',
-            'email'=>['required','email'],
+            'sits'=>'required',
+            'status'=>'required',
         ]);
 
-        lecturer::create($validated);
+        room::create($validated);
         
-        return redirect('/lecturer')->with('message','Lecturer added successfully');
+        return redirect('/room')->with('message','Room added successfully');
     }
 
     /**

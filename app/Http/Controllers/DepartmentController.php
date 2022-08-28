@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\lecturer;
+use App\Models\department;
 use Illuminate\Http\Request;
 
-class LecturerController extends Controller
+class DepartmentController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,7 @@ class LecturerController extends Controller
      */
     public function index()
     {
-        return view('lecturer');
+        //
     }
 
     /**
@@ -36,13 +36,15 @@ class LecturerController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
+            'department_code'=>'required',
             'name'=>'required',
-            'email'=>['required','email'],
+            'modules'=>'required',
+            'faculty'=>'required',
         ]);
 
-        lecturer::create($validated);
+        department::create($validated);
         
-        return redirect('/lecturer')->with('message','Lecturer added successfully');
+        return redirect('/department')->with('message','Department added successfully');
     }
 
     /**

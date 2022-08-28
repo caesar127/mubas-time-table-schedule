@@ -21,8 +21,18 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 });
 
-Route::get('/department', function () {
-    return view('department');
-});
-
+// Lecturer Routes
 Route::resource('/lecturer', LecturerController::class);
+Route::resource('/lecturer/create', LecturerController::class)->only(['store']);
+
+// Department Routes
+Route::resource('/department', DepartmentController::class);
+Route::resource('/department/create', DepartmentController::class)->only(['store']);
+
+// Faculty Routes
+Route::resource('/faculty', FacultyController::class);
+Route::resource('/faculty/create', FacultyController::class)->only(['store']);
+
+// Module Routes
+Route::resource('/module', ModuleController::class);
+Route::resource('/module/create', ModuleController::class)->only(['store']);
