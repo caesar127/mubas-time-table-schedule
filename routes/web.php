@@ -1,6 +1,6 @@
 <?php
-
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\LecturerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,10 +17,6 @@ Route::get('/', function () {
     return view('landing');
 });
 
-Route::get('/lecturer', function () {
-    return view('lecturer');
-});
-
 Route::get('/dashboard', function () {
     return view('dashboard');
 });
@@ -28,3 +24,5 @@ Route::get('/dashboard', function () {
 Route::get('/department', function () {
     return view('department');
 });
+
+Route::resource('/lecturer', LecturerController::class);
