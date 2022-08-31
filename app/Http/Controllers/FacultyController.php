@@ -14,7 +14,7 @@ class FacultyController extends Controller
      */
     public function index()
     {
-        return view('faculty', ['faculties' => faculty::all()]);
+        return view('faculty',  ['faculty' => faculty::latest()->filter(request(['search']))->SimplePaginate(5)]);
     }
 
     /**

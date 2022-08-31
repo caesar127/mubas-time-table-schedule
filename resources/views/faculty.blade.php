@@ -58,8 +58,8 @@
                   </tr>
                 </thead class="">
                 <tbody>
-                  @unless (count($faculties) == 0)
-                  @foreach ($faculties as $faculties)
+                  @unless (count($faculty) == 0)
+                  @foreach ($faculty as $faculties)
                     <tr class="bg-white border-b">
                         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{{$faculties->faculty_code}}</td>
                         <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
@@ -107,6 +107,10 @@
           </div>
         </div>
       </div>
+    </div>
+
+    <div class="p-4 pt-0">
+      {{$faculty->links()}}
     </div>
 </div>
 @endsection
