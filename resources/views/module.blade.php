@@ -40,8 +40,8 @@
                   @enderror
                 </div>
                 <div class="form-check mb-6">
-                    <input class="form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer" type="checkbox" value="" id="flexCheckDefault">
-                    <label class="form-check-label inline-block text-gray-800" for="flexCheckDefault">
+                    <input class="form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer" type="checkbox" value="" id="Checkbox">
+                    <label class="form-check-label inline-block text-gray-800" for="Checkbox">
                       Exam
                     </label>
                 </div>
@@ -51,6 +51,9 @@
         </div>
       </div>
     </div>
+    <script>
+    $(document).on('click', '#Checkbox', function(e){});
+    </script>
 
     <div style="padding: 10px">
       <div class="flex flex-col">

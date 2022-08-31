@@ -43,7 +43,7 @@
 
 
 
-    <div style="padding: 10px">
+    <div style="padding: 10px ; padding-bottom: 0px;">
       <div class="flex flex-col">
         <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
           <div class="py-4 inline-block min-w-full sm:px-6 lg:px-8">
@@ -58,8 +58,8 @@
                   </tr>
                 </thead class="">
                 <tbody>
-                  @unless (count($lecturers) == 0)
-                  @foreach ($lecturers as $lecturers)
+                  @unless (count($lecturer) == 0)
+                  @foreach ($lecturer as $lecturers)
                     <tr class="bg-white border-b">
                       <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{{$lecturers->lecturer_id}}</td>
                       <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{{$lecturers->name}}</td>
@@ -90,17 +90,20 @@
                       </td>
                     </tr>
                   @endforeach
-                  
                   @else
                     <p>No listings found</p>
-                  @endunless
                   
+                  @endunless
                 </tbody>
               </table>
             </div>
           </div>
         </div>
       </div>
+    </div>
+    
+    <div class="p-4 pt-0">
+      {{$lecturer->links()}}
     </div>
 </div>
 @endsection
