@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id('module_code');
             $table->string('module_name');
             $table->string('lecturer');
-            $table->boolean('exam')->default(0);
+            $table->string('exam');
             $table->index('lecturer');
             $table->foreign('lecturer')->references('lecturer_id')->on('lecturer')->onDelete('cascade');
             $table->timestamps();
