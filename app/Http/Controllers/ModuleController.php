@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\lecturer;
 use App\Models\module;
 use Illuminate\Http\Request;
 
@@ -14,7 +15,7 @@ class ModuleController extends Controller
      */
     public function index()
     {
-        return view('module');
+        return view('module', ['module' => module::latest()->filter(request(['search']))->SimplePaginate(4)]);
     }
 
     /**
