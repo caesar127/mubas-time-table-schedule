@@ -112,5 +112,9 @@
         </div>
       </div>
     </div>
+
+    <div class="p-4 pt-0">
+      {{$room->links()}}
+    </div>
 </div>
 @endsection
