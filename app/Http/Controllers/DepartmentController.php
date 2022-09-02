@@ -14,7 +14,7 @@ class DepartmentController extends Controller
      */
     public function index()
     {
-        return view('department');
+        return view('department', ['department' => department::latest()->filter(request(['search']))->SimplePaginate(4)]);
     }
 
     /**
