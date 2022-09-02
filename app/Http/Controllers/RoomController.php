@@ -14,7 +14,7 @@ class RoomController extends Controller
      */
     public function index()
     {
-        return view('rooms');
+        return view('rooms', ['room' => room::latest()->filter(request(['search']))->SimplePaginate(4)]);
     }
 
     /**
