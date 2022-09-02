@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\lecturer;
 use App\Models\module;
+use App\Models\lecturer;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ModuleController extends Controller
 {

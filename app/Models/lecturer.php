@@ -9,6 +9,8 @@ class lecturer extends Model
 {
     use HasFactory;
 
+    protected $table = 'lecturers';
+
     protected $fillable = ['lecturer_id','name','email'];
 
     public function scopeFilter($query, array $filters) {
@@ -17,5 +19,5 @@ class lecturer extends Model
                 ->orWhere('name', 'like', '%' . request('search') . '%')
                 ->orWhere('email', 'like', '%' . request('search') . '%');
         }
-    }
+    } 
 }

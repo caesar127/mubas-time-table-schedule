@@ -8,6 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class module extends Model
 {
     use HasFactory;
+    
+    protected $table = 'modules';
+
     protected $fillable = ['module_code','module_name','lecturer','exam'];
 
     public function scopeFilter($query, array $filters) {
