@@ -115,9 +115,10 @@
                     </tr class="bg-white border-b">
                   @endforeach
                   @else
-                    <p>No Modules found</p>
-                  
-                  @endunless
+                    <tr class="bg-white border-b">
+                      <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">No Modules found</td>
+                    </tr class="bg-white border-b">
+                    @endunless
                 </tbody>
               </table>
             </div>

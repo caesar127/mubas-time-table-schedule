@@ -92,7 +92,7 @@
                   @endforeach
                   @else
                     <tr class="bg-white border-b">
-                      <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">No Classes found</td>
+                      <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">No Lecturers found</td>
                     </tr class="bg-white border-b">
                     @endunless
                 </tbody>
