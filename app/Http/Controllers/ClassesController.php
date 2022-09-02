@@ -14,7 +14,7 @@ class ClassesController extends Controller
      */
     public function index()
     {
-        return view('classes');
+        return view('classes', ['class' => classes::latest()->filter(request(['search']))->SimplePaginate(4)]);
     }
 
     /**
