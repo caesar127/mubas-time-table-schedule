@@ -10,7 +10,11 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="//unpkg.com/alpinejs" defer></script>
         @vite('resources/js/app.js')
+        @vite('resources/js/dycalendar.js')
+        @vite('resources/js/dycalendar.min.js')
         @vite('resources/css/app.css')
+        @vite('resources/css/dycalendar.css')
+        @vite('resources/css/dycalendar.min.css')
         <style>
             body {
                 font: 16px/1.5 ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
