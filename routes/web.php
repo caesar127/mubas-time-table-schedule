@@ -39,8 +39,8 @@ Route::resource('/faculty', FacultyController::class);
 Route::resource('/faculty/create', FacultyController::class)->only(['store']);
 
 // Module Routes
-Route::resource('/module', ModuleController::class);
-Route::resource('/module/create', ModuleController::class)->only(['store']);
+Route::resource('/module', ModuleController::class); //Index
+Route::resource('/module/create', ModuleController::class)->only(['store']); //Insert
 
 // Class Routes
 Route::resource('/classes', ClassesController::class);
