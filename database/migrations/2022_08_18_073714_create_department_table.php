@@ -16,7 +16,6 @@ return new class extends Migration
         Schema::create('department', function (Blueprint $table) {
             $table->id('department_code');
             $table->string('name');
-            $table->string('modules');
             $table->string('faculty');
             $table->index('faculty');
             $table->foreign('faculty')->references('faculty_code')->on('faculty')->onDelete('cascade');
