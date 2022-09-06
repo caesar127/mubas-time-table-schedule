@@ -43,7 +43,7 @@ class DepartmentmoduleController extends Controller
         ]);
 
         
-        dd(department_module::create($validated));
+        department_module::create($validated);
         
         return redirect('/departmentsmodule')->with('message','Department Module added successfully');
     }
