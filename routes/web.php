@@ -6,6 +6,7 @@ use App\Http\Controllers\ClassesController;
 use App\Http\Controllers\FacultyController;
 use App\Http\Controllers\LecturerController;
 use App\Http\Controllers\DepartmentController;
+use App\Http\Controllers\DepartmentmoduleController;
 
 /*
 |--------------------------------------------------------------------------
