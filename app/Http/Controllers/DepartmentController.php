@@ -66,7 +66,7 @@ class DepartmentController extends Controller
      */
     public function edit(department $department)
     {
-        return view('/update_department', ['department' => $department]);
+        return view('update_department', compact('department'));
     }
 
     /**
