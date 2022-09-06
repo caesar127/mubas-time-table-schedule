@@ -42,6 +42,9 @@ Route::resource('/faculty/create', FacultyController::class)->only(['store']);
 Route::resource('/module', ModuleController::class); //Index
 Route::resource('/module/create', ModuleController::class)->only(['store']); //Insert
 
+// Departments Module Routes
+Route::resource('/departmentsmodule', DepartmentmoduleController::class);
+
 // Class Routes
 Route::resource('/classes', ClassesController::class);
 Route::resource('/classes/create', ClassesController::class)->only(['store']);
