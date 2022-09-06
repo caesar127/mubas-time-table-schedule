@@ -25,7 +25,7 @@
             <form class="" action="{{ route('lecturer.store') }}" method="POST">
               @csrf
               <?php $lecturer_id = rand(0,500)?> 
-              <div class="form-group mb-6" ><input type="text" class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" name="lecturer_id" value="{{$lecturer_id}}">
+              <div class="form-group mb-6" hidden><input type="text" class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" name="lecturer_id" value="{{$lecturer_id}}">
                 @error('lecturer_id')
                 <p class="text-red-5000 text-xs mt-1">{{$message}}</p>
                 @enderror

@@ -13,7 +13,7 @@ class department_module extends Model
     public $incrementing = false;
     public $keyType = "string";
 
-    protected $fillable = ['department','year','semester','module'];
+    protected $fillable = ['code','department','year','semester','module'];
 
     public function scopeFilter($query, array $filters) {
         if($filters['search'] ?? false) {
