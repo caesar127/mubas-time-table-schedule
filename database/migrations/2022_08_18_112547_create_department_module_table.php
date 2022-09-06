@@ -16,11 +16,13 @@ return new class extends Migration
         Schema::create('department_module', function (Blueprint $table) {
             $table->id('code');
             $table->string('department');
-            $table->string('modules');
+            $table->integer('year');
+            $table->string('semester');
+            $table->string('module');
             $table->index('department');
-            $table->foreign('department')->references('department_code')->on('department')->onDelete('cascade');
-            $table->index('modules');
-            $table->foreign('modules')->references('module_code')->on('module')->onDelete('cascade');
+            $table->index('module');
+            $table->foreign('department')->references('code')->on('department')->onDelete('cascade');
+            $table->foreign('module')->references('module_code')->on('module')->onDelete('cascade');
             $table->timestamps();
         });
     }
