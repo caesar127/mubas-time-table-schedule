@@ -66,9 +66,9 @@ class ModuleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(module $module)
     {
-        //
+        return view('update_module', compact('module'));
     }
 
     /**
@@ -78,9 +78,16 @@ class ModuleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, module $module)
     {
-        //
+        $request->validate([
+            'module_name'=>'required',
+            'lecturer'=>'required',
+            'exam'=>'required',
+        ]);
+
+        $module->update($request->all());
+        return redirect('/module')->with('message','Module updated successfully');
     }
 
     /**
@@ -89,8 +96,9 @@ class ModuleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(module $module)
     {
-        //
+        $module->delete();
+        return redirect('/module')->with('message','Module deleted successfully');
     }
 }

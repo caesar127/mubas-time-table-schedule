@@ -22,7 +22,7 @@
               data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body relative p-4">
-            <form class="" action="/module/create" method="POST">
+            <form class="" action="{{ route('module.store') }}" method="POST">
                 @csrf
                 <div class="form-group mb-6"><input type="text" class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" name="module_code" placeholder="Module Code">
                   @error('module_code')
@@ -34,12 +34,23 @@
                     <p class="text-red-5000 text-xs mt-1">{{$message}}</p>
                     @enderror
                 </div>
-                <div class="form-group mb-6"><input type="text" class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" name="lecturer" placeholder="Lecturer">
-                  @error('lecturer')
-                  <p class="text-red-5000 text-xs mt-1">{{$message}}</p>
-                  @enderror
-                </div>
-                <div class="form-check mb-6">
+                <div class="form-group">
+                  <div class="flex justify-center">
+                      <div class="mb-3 xl:w-96">
+                          <select class="form-select appearance-none block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding bg-no-repeat border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" aria-label="Default select example" name="lecturer" style="margin-bottom: 25px;">
+                              <?php $lecturer =DB::table('lecturer')->select('lecturer_id', 'name') ->get();?>
+                              @unless (count($lecturer) == 0)
+                                  @foreach ($lecturer as $lecturer)
+                                  <option value="{{$lecturer->lecturer_id}}">{{$lecturer->name}}</option>
+                                  @endforeach
+                              @else
+                                  <option>No Lecturers available</option>
+                              @endunless
+                          </select>
+                      </div>
+                  </div>
+              </div>
+                <div class="form-check">
                   <div class="flex justify-center">
                     <div class="mb-3 xl:w-96">
                       <select class="form-select appearance-none block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding bg-no-repeat border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" aria-label="Default select example" name="exam">
@@ -102,10 +113,14 @@
                                 </a>
                                 <ul class=" dropdown-menu min-w-max absolute bg-white text-base z-50 float-left py-2 list-none text-left rounded-lg shadow-lg mt-1 hidden m-0 bg-clip-padding border-none" aria-labelledby="dropdownMenuButton2">
                                   <li>
-                                    <a class=" dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100 " href="#">Update</a >
+                                    <a class=" dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100 " href="{{ route('module.edit', $modules->module_code) }}">Update</a >
                                   </li>
                                   <li>
-                                    <a class=" dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100 " href="#">Delete</a >
+                                    <form action="{{ route('module.destroy',$modules->module_code) }}" method="POST">
+                                      @csrf
+                                      @method('DELETE')
+                                      <button type="submit" class="dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100">Delete</button>
+                                    </form>
                                   </li>
                                 </ul>
                               </div>
