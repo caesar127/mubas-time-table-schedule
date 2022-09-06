@@ -9,6 +9,8 @@ class faculty extends Model
 {
     use HasFactory;
     protected $table = 'faculty';
+    protected $primaryKey = 'faculty_code';
+    public $incrementing = false;
 
     protected $fillable = ['faculty_code','name'];
 

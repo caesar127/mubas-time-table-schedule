@@ -10,6 +10,8 @@ class module extends Model
     use HasFactory;
     
     protected $table = 'module';
+    protected $primaryKey = 'module_code';
+    public $incrementing = false;
 
     protected $fillable = ['module_code','module_name','lecturer','exam'];
 

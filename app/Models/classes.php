@@ -10,6 +10,8 @@ class classes extends Model
     use HasFactory;
 
     protected $table = 'classes';
+    protected $primaryKey = 'class_code';
+    public $incrementing = false;
 
     protected $fillable = ['class_code','name','department','students','status'];
 

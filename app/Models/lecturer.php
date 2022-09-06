@@ -10,6 +10,8 @@ class lecturer extends Model
     use HasFactory;
 
     protected $table = 'lecturer';
+    protected $primaryKey = 'lecturer_id';
+    public $incrementing = false;
 
     protected $fillable = ['lecturer_id','name','email'];
 
