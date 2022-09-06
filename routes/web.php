@@ -45,6 +45,7 @@ Route::resource('/module/create', ModuleController::class)->only(['store']); //I
 
 // Departments Module Routes
 Route::resource('/departmentsmodule', DepartmentmoduleController::class);
+Route::resource('/departmentsmodule/create', ModuleController::class)->only(['store']); 
 
 // Class Routes
 Route::resource('/classes', ClassesController::class);
