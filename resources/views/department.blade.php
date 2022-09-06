@@ -67,6 +67,7 @@
                     <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4">Code</th>
                     <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4">Name</th>
                     <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4">Faculty</th>
+                    <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4">Duration</th>
                     <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4">Modules</th>
                     <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4">Action</th>
                   </tr>
@@ -82,6 +83,9 @@
                     <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                       <?php $faculty = DB::table('faculties')->where('faculty_code',$departments->faculty)->value('name');?>
                         {{$faculty}}
+                    </td>
+                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                      {{$departments->duration}}
                     </td>
                     <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                       <?php $modules = DB::table('department_module')->where('department',$departments->department_code)->get();?>
