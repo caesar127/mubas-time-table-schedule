@@ -71,7 +71,7 @@
                     <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4">Module Code</th>
                     <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4">Name</th>
                     <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4">Lecturer</th>
-                    <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4">Exam</th>
+                    <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4">Assessment</th>
                     <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4">Action</th>
                   </tr>
                 </thead class="">
