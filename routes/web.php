@@ -26,32 +26,17 @@ Route::get('/', function () {
 Route::get('/dashboard', function () {
     return view('dashboard');
 });
-
 // Lecturer Routes
 Route::resource('/lecturer', LecturerController::class);
-Route::resource('/lecturer/create', LecturerController::class)->only(['store']);
-
 // Department Routes
 Route::resource('/department', DepartmentController::class);
-Route::resource('/department/create', DepartmentController::class)->only(['store']);
-Route::resource('/department/{department}/edit', DepartmentController::class)->only(['edit']);
-
 // Faculty Routes
 Route::resource('/faculty', FacultyController::class);
-Route::resource('/faculty/create', FacultyController::class)->only(['store']);
-
 // Module Routes
-Route::resource('/module', ModuleController::class); //Index
-Route::resource('/module/create', ModuleController::class)->only(['store']); //Insert
-
+Route::resource('/module', ModuleController::class);
 // Departments Module Routes
 Route::resource('/departmentsmodule', DepartmentmoduleController::class);
-Route::resource('/departmentsmodule/create', DepartmentmoduleController::class)->only(['store']); 
-
 // Class Routes
 Route::resource('/classes', ClassesController::class);
-Route::resource('/classes/create', ClassesController::class)->only(['store']);
-
 // Rooms Routes
 Route::resource('/room', RoomController::class);
-Route::resource('/room/create', RoomController::class)->only(['store']);

@@ -1,25 +1,26 @@
-@extends('components/layout')
+@extends('components/Ulayout')
 @section('content')
 <style>
 </style>
-<div style="background: #fff; width: 40%; border-radius: 20px; margin-top:50px; margin-left:30%;">
+<div style="background: #fff; width: 40%; border-radius: 20px; margin-top:10%; margin-left:30%;">
     <div style="justify-content: space-between; display: flex; padding: 10px;">
         <h1 style="font-weight: 500; font-size: x-large; color: #545454;">UPDATE DEPARTMENT</h1>
     </div>
 
-    <form class="" method="POST" style="padding: 20px;">
+    <form class="" action="{{ route('department.update', $department->department_code) }}" method="POST" style="padding: 20px;">
         @csrf
+        @method('PUT')
         <div class="form-group mb-6"><input type="text" class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" id="exampleInputEmail2" placeholder="Department Code" name="department_code" value="{{$department->department_code}}" readonly>
         </div>
-        <div class="form-group mb-6"><input type="text" class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" id="exampleInputEmail2" placeholder="Department Name" name="name">
+        <div class="form-group mb-6"><input type="text" class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" id="exampleInputEmail2" placeholder="Department Name" name="name" value="{{$department->name}}">
         </div>
-        <div class="form-group mb-6"><input type="text" class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" id="exampleInputEmail2" placeholder="Duration" name="duration">
+        <div class="form-group mb-6"><input type="text" class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" id="exampleInputEmail2" placeholder="Duration" name="duration" value="{{$department->duration}}">
         </div>
         <div class="form-check mb-6">
           <div class="flex justify-center">
             <div class="mb-3 xl:w-96">
               <select class="form-select appearance-none block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding bg-no-repeat border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" aria-label="Default select example" name="faculty">
-                  <option selected>Faculty</option>
+                  <option value="{{$department->faculty}}" selected>{{$department->faculty}}</option>
                   <?php $faculty =DB::table('faculty')->select('faculty_code', 'name') ->get();?>
                   @unless (count($faculty) == 0)
                     @foreach ($faculty as $faculty)

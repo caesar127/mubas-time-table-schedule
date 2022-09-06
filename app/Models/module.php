@@ -12,6 +12,7 @@ class module extends Model
     protected $table = 'module';
     protected $primaryKey = 'module_code';
     public $incrementing = false;
+    public $keyType = "string";
 
     protected $fillable = ['module_code','module_name','lecturer','exam'];
 

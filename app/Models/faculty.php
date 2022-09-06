@@ -11,6 +11,7 @@ class faculty extends Model
     protected $table = 'faculty';
     protected $primaryKey = 'faculty_code';
     public $incrementing = false;
+    public $keyType = "string";
 
     protected $fillable = ['faculty_code','name'];
 

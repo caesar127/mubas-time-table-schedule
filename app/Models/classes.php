@@ -12,6 +12,7 @@ class classes extends Model
     protected $table = 'classes';
     protected $primaryKey = 'class_code';
     public $incrementing = false;
+    public $keyType = "string";
 
     protected $fillable = ['class_code','name','department','students','status'];
 

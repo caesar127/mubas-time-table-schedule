@@ -12,6 +12,7 @@ class lecturer extends Model
     protected $table = 'lecturer';
     protected $primaryKey = 'lecturer_id';
     public $incrementing = false;
+    public $keyType = "string";
 
     protected $fillable = ['lecturer_id','name','email'];
 

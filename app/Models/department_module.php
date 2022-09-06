@@ -9,6 +9,9 @@ class department_module extends Model
 {
     use HasFactory;
     protected $table = 'department_module';
+    protected $primaryKey = 'code';
+    public $incrementing = false;
+    public $keyType = "string";
 
     protected $fillable = ['department','year','semester','module'];
 

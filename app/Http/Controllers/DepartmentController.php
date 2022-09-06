@@ -76,15 +76,15 @@ class DepartmentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, department $departments)
     {
         $validated = $request->validate([
             'name'=>'required',
             'faculty'=>'required',
             'duration'=>'required',
         ]);
-
-        // $id->update($validated);
+        dd($departments);
+        dd($departments->update($request->all()));
         
         return redirect('/department')->with('message','Department updated successfully');
     }
