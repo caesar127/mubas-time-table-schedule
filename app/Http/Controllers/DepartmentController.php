@@ -78,7 +78,15 @@ class DepartmentController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $validated = $request->validate([
+            'name'=>'required',
+            'faculty'=>'required',
+            'duration'=>'required',
+        ]);
+
+        $id->update($validated);
+        
+        return redirect('/department')->with('message','Department updated successfully');
     }
 
     /**

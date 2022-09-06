@@ -34,6 +34,7 @@ Route::resource('/lecturer/create', LecturerController::class)->only(['store']);
 // Department Routes
 Route::resource('/department', DepartmentController::class);
 Route::resource('/department/create', DepartmentController::class)->only(['store']);
+Route::resource('/department/{department}/edit', DepartmentController::class)->only(['edit']);
 
 // Faculty Routes
 Route::resource('/faculty', FacultyController::class);
