@@ -19,7 +19,7 @@
                 width: 100%;
                 padding: 5px 15px;
             }
-            .admin-menu li a{
+            .admin-menu li a{/
                 display: flex; 
                 align-items: center; 
                 font-size: 0.9rem;
