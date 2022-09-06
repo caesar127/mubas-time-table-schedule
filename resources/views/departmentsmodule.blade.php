@@ -56,7 +56,7 @@
                     <div class="mb-3 xl:w-96">
                       <select class="form-select appearance-none block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding bg-no-repeat border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" aria-label="Default select example" name="module">
                           <option selected>Module</option>
-                          <?php $module =DB::table('modules')->select('module_code', 'module_name') ->get();;?>
+                          <?php $module =DB::table('module')->select('module_code', 'module_name') ->get();;?>
                           @unless (count($module) == 0)
                             @foreach ($module as $modules)
                               <option value="{{$modules->module_code}}">{{$modules->module_name}}</option>
@@ -106,7 +106,7 @@
                           {{$departmentmodules->semester}}
                         </td>
                         <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                            <?php $module = DB::table('modules')->where('module_code',$departmentmodules->module)->value('module_name');?>
+                            <?php $module = DB::table('module')->where('module_code',$departmentmodules->module)->value('module_name');?>
                             {{$module}}
                         </td>
                         <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">

@@ -9,7 +9,7 @@ class module extends Model
 {
     use HasFactory;
     
-    protected $table = 'modules';
+    protected $table = 'module';
 
     protected $fillable = ['module_code','module_name','lecturer','exam'];
 

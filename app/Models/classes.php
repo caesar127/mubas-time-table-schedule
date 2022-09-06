@@ -9,7 +9,7 @@ class classes extends Model
 {
     use HasFactory;
 
-    protected $table = 'departments';
+    protected $table = 'classes';
 
     protected $fillable = ['class_code','name','department','students','status'];
 
