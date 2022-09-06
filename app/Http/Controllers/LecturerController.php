@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\lecturer;
+use Illuminate\Auth\Events\Validated;
 use Illuminate\Http\Request;
 
 class LecturerController extends Controller
@@ -37,10 +38,10 @@ class LecturerController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
+            'lecturer_id'=> 'required',
             'name'=>'required',
             'email'=>['required','email'],
         ]);
-
         lecturer::create($validated);
         
         return redirect('/lecturer')->with('message','Lecturer added successfully');
@@ -63,9 +64,9 @@ class LecturerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(lecturer $lecturer)
     {
-        //
+        return view('update_lecturer', compact('lecturer'));
     }
 
     /**
@@ -75,9 +76,17 @@ class LecturerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, lecturer $lecturer)
     {
-        //
+
+        $request->validate([
+            'name'=>'required',
+            'email'=>['required','email'],
+        ]);
+
+        $lecturer->update($request->all());
+        
+        return redirect('/lecturer')->with('message','Lecturer Updated successfully');
     }
 
     /**
@@ -86,8 +95,9 @@ class LecturerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(lecturer $lecturer)
     {
-        //
+        $lecturer->delete();
+        return redirect('/lecturer')->with('message','Lecturer Deleted successfully');
     }
 }

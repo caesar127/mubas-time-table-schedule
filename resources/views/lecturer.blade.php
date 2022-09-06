@@ -22,8 +22,14 @@
               data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body relative p-4">
-            <form class="" action="/lecturer/create" method="POST">
+            <form class="" action="{{ route('lecturer.store') }}" method="POST">
               @csrf
+              <?php $lecturer_id = rand(0,500)?> 
+              <div class="form-group mb-6" ><input type="text" class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" name="lecturer_id" value="{{$lecturer_id}}">
+                @error('lecturer_id')
+                <p class="text-red-5000 text-xs mt-1">{{$message}}</p>
+                @enderror
+              </div>
               <div class="form-group mb-6"><input type="text" class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" name="name" placeholder="Name">
                 @error('name')
                 <p class="text-red-5000 text-xs mt-1">{{$message}}</p>
@@ -51,7 +57,6 @@
               <table class="min-w-full text-center">
                 <thead class=" bg-gray-50">
                   <tr>
-                    <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4">Lecturer ID</th>
                     <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4">Name</th>
                     <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4">Email</th>
                     <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4">Action</th>
@@ -60,9 +65,7 @@
                 <tbody>
                   @unless (count($lecturer) == 0)
                   @foreach ($lecturer as $lecturers)
-                    <tr class="bg-white border-b">
-                      <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{{$lecturers->lecturer_id}}</td>
-                      <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{{$lecturers->name}}</td>
+                    <tr class="bg-white border-b"><td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{{$lecturers->name}}</td>
                       <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{{$lecturers->email}}</td>
                       <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                         <div class="flex justify-center">
@@ -75,13 +78,14 @@
                               </a>
                               <ul class=" dropdown-menu min-w-max absolute bg-white text-base z-50 float-left py-2 list-none text-left rounded-lg shadow-lg mt-1 hidden m-0 bg-clip-padding border-none" aria-labelledby="dropdownMenuButton2">
                                 <li>
-                                  <a class=" dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100 " href="#">View</a >
+                                  <a class=" dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100 " href="{{ route('lecturer.edit', $lecturers->lecturer_id) }}">Update</a >
                                 </li>
                                 <li>
-                                  <a class=" dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100 " href="#">Update</a >
-                                </li>
-                                <li>
-                                  <a class=" dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100 " href="#">Delete</a >
+                                  <form action="{{ route('lecturer.destroy',$lecturers->lecturer_id) }}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100">Delete</button>
+                                  </form>
                                 </li>
                               </ul>
                             </div>

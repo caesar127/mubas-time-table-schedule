@@ -7,15 +7,15 @@
         <h1 style="font-weight: 500; font-size: x-large; color: #545454;">UPDATE DEPARTMENT</h1>
     </div>
 
-    <form class="" action="{{ route('faculty.update', $faculty->faculty_code) }}" method="POST" style="padding: 20px;">
+    <form class="" action="{{ route('lecturer.update', $lecturer->lecturer_id) }}" method="POST" style="padding: 20px;">
         @csrf
         @method('PUT')
-        <div class="form-group mb-6"><input type="text" class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" name="faculty_code" value="{{$faculty->faculty_code}}" readonly>
+        <div class="form-group mb-6"><input type="text" class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" name="name" value="{{$lecturer->name}}" readonly>
           @error('faculty_code')
           <p class="text-red-5000 text-xs mt-1">{{$message}}</p>
           @enderror
         </div>
-        <div class="form-group mb-6"><input type="text" class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" name="name" value="{{$faculty->name}}">
+        <div class="form-group mb-6"><input type="text" class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" name="email" value="{{$lecturer->email}}">
           @error('name')
           <p class="text-red-5000 text-xs mt-1">{{$message}}</p>
           @enderror
