@@ -64,9 +64,9 @@ class DepartmentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(department $id)
     {
-        //
+        return view('/update_department', ['department' => $id]);
     }
 
     /**
@@ -84,7 +84,7 @@ class DepartmentController extends Controller
             'duration'=>'required',
         ]);
 
-        $id->update($validated);
+        // $id->update($validated);
         
         return redirect('/department')->with('message','Department updated successfully');
     }
