@@ -85,7 +85,7 @@
                           {{$modules->module_name}}
                         </td>
                         <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                          <?php $lec = DB::table('lecturers')->where('lecturer_id',$modules->lecturer)->value('name');?>
+                          <?php $lec = DB::table('lecturer')->where('lecturer_id',$modules->lecturer)->value('name');?>
                           {{$lec}}
                         </td>
                         <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
