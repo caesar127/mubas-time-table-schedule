@@ -39,6 +39,7 @@ class DepartmentController extends Controller
             'department_code'=>'required',
             'name'=>'required',
             'faculty'=>'required',
+            'duration'=>'required',
         ]);
 
         department::create($validated);
