@@ -81,7 +81,7 @@
                       {{$departments->name}}
                     </td>
                     <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                      <?php $faculty = DB::table('faculties')->where('faculty_code',$departments->faculty)->value('name');?>
+                      <?php $faculty = DB::table('faculty')->where('faculty_code',$departments->faculty)->value('name');?>
                         {{$faculty}}
                     </td>
                     <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
