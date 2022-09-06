@@ -38,7 +38,6 @@ class DepartmentController extends Controller
         $validated = $request->validate([
             'department_code'=>'required',
             'name'=>'required',
-            'modules'=>'required',
             'faculty'=>'required',
         ]);
 
