@@ -42,7 +42,7 @@ class DepartmentmoduleController extends Controller
             'module'=>'required',
         ]);
 
-        
+        // dd($validated);
         department_module::create($validated);
         
         return redirect('/departmentsmodule')->with('message','Department Module added successfully');

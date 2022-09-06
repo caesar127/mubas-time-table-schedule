@@ -29,7 +29,7 @@
                     <div class="mb-3 xl:w-96">
                       <select class="form-select appearance-none block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding bg-no-repeat border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" aria-label="Default select example" name="department">
                           <option selected>Departments</option>
-                          <?php $department =DB::table('departments')->select('department_code', 'name') ->get();;?>
+                          <?php $department =DB::table('department')->select('department_code', 'name') ->get();;?>
                           @unless (count($department) == 0)
                             @foreach ($department as $departments)
                               <option value="{{$departments->department_code}}">{{$departments->name}}</option>
@@ -41,10 +41,10 @@
                     </div>
                   </div>
                 </div>
-                <div class="form-group mb-6"><input type="text" class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" name="year" placeholder="Academic Year">
-                  @error('module_code')
-                  <p class="text-red-5000 text-xs mt-1">{{$message}}</p>
-                  @enderror
+                <div class="form-group mb-6"><input type="text" class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" name="year" placeholder="Semester">
+                    @error('module_name')
+                    <p class="text-red-5000 text-xs mt-1">{{$message}}</p>
+                    @enderror
                 </div>
                 <div class="form-group mb-6"><input type="text" class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" name="semester" placeholder="Semester">
                     @error('module_name')
@@ -100,14 +100,14 @@
                     <tr class="bg-white border-b">
                         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">    {{$departmentmodules->department}}</td>
                         <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                          {{$departmentmodules->Year}}
+                          {{$departmentmodules->year}}
                         </td>
                         <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                           {{$departmentmodules->semester}}
                         </td>
                         <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                             <?php $module = DB::table('modules')->where('module_code',$departmentmodules->module)->value('module_name');?>
-                            {{$lec}}
+                            {{$module}}
                         </td>
                         <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                           <div class="flex justify-center">

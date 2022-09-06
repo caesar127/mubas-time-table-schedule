@@ -10,7 +10,7 @@ class department_module extends Model
     use HasFactory;
     protected $table = 'department_module';
 
-    protected $fillable = ['department','Year','semester','module'];
+    protected $fillable = ['department','year','semester','module'];
 
     public function scopeFilter($query, array $filters) {
         if($filters['search'] ?? false) {
