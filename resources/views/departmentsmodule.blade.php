@@ -4,9 +4,9 @@
 </style>
 <div style="background: #fff; height: 450px; width: 100%; border-radius: 20px; margin-top:50px;">
     <div style="justify-content: space-between; display: flex; padding: 10px;">
-        <h1 style="font-weight: 500; font-size: x-large; color: #545454;">Module</h1>
+        <h1 style="font-weight: 500; font-size: x-large; color: #545454;">Department Modules</h1>
         <button type="button" class="inline-block px-6 py-2.5 bg-blue-500 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-600 hover:shadow-lg focus:bg-blue-600 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-600 active:shadow-lg transition duration-150 ease-in-out" data-bs-toggle="modal" data-bs-target="#exampleModalCenter" style="background: #0184CC">
-          New Module
+          New Department Module
         </button>
     </div>
     
@@ -24,28 +24,46 @@
           <div class="modal-body relative p-4">
             <form class="" action="/module/create" method="POST">
                 @csrf
-                <div class="form-group mb-6"><input type="text" class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" name="module_code" placeholder="Module Code">
+                <div class="form-check mb-6">
+                  <div class="flex justify-center">
+                    <div class="mb-3 xl:w-96">
+                      <select class="form-select appearance-none block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding bg-no-repeat border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" aria-label="Default select example" name="department">
+                          <option selected>Departments</option>
+                          <?php $department =DB::table('departments')->select('department_code', 'name') ->get();;?>
+                          @unless (count($department) == 0)
+                            @foreach ($department as $departments)
+                              <option value="{{$departments->department_code}}">{{$departments->name}}</option>
+                            @endforeach
+                          @else
+                            <option>No departments available</option>
+                          @endunless
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group mb-6"><input type="text" class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" name="year" placeholder="Academic Year">
                   @error('module_code')
                   <p class="text-red-5000 text-xs mt-1">{{$message}}</p>
                   @enderror
                 </div>
-                <div class="form-group mb-6"><input type="text" class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" name="module_name" placeholder="Module Name">
+                <div class="form-group mb-6"><input type="text" class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" name="semester" placeholder="Semester">
                     @error('module_name')
                     <p class="text-red-5000 text-xs mt-1">{{$message}}</p>
                     @enderror
                 </div>
-                <div class="form-group mb-6"><input type="text" class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" name="lecturer" placeholder="Lecturer">
-                  @error('lecturer')
-                  <p class="text-red-5000 text-xs mt-1">{{$message}}</p>
-                  @enderror
-                </div>
                 <div class="form-check mb-6">
                   <div class="flex justify-center">
                     <div class="mb-3 xl:w-96">
-                      <select class="form-select appearance-none block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding bg-no-repeat border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" aria-label="Default select example" name="exam">
-                          <option selected>Assessment method</option>
-                          <option value="Examination">Examination</option>
-                          <option value="Assignment">Assignment</option>
+                      <select class="form-select appearance-none block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding bg-no-repeat border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" aria-label="Default select example" name="module">
+                          <option selected>Module</option>
+                          <?php $module =DB::table('modules')->select('module_code', 'module_name') ->get();;?>
+                          @unless (count($module) == 0)
+                            @foreach ($module as $modules)
+                              <option value="{{$modules->module_code}}">{{$modules->module_name}}</option>
+                            @endforeach
+                          @else
+                            <option>No modules available</option>
+                          @endunless
                       </select>
                     </div>
                   </div>
@@ -116,7 +134,7 @@
                   @endforeach
                   @else
                     <tr class="bg-white border-b">
-                      <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">No Modules found</td>
+                      <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">No Department Modules found</td>
                     </tr class="bg-white border-b">
                     @endunless
                 </tbody>
