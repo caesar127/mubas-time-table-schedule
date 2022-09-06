@@ -92,8 +92,9 @@ class FacultyController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(faculty $faculty)
     {
-        //
+        $faculty->delete();
+        return redirect('/faculty')->with('message','Faculty Deleted successfully');
     }
 }
