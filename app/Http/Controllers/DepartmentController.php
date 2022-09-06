@@ -76,16 +76,16 @@ class DepartmentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, department $departments)
+    public function update(Request $request, department $department)
     {
-        $validated = $request->validate([
+        $request->validate([
             'name'=>'required',
             'faculty'=>'required',
             'duration'=>'required',
         ]);
-        dd($departments);
-        dd($departments->update($request->all()));
-        
+
+        $department->update($request->all());
+
         return redirect('/department')->with('message','Department updated successfully');
     }
 
@@ -95,8 +95,9 @@ class DepartmentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(department $department)
     {
-        //
+        $department->delete();
+        return redirect('/department')->with('message','Department deleted successfully');
     }
 }
