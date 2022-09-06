@@ -93,24 +93,6 @@
                                 <span class="group-hover:text-gray-700">Department</span>
                                 </a>
                             </li>
-                            {{-- <li class="min-w-max">
-                                <a href="department" class="bg group flex items-center space-x-4 px-4 py-3 text-white" style="background:#0184CC">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="-ml-1 h-6 w-6" viewBox="0 0 24 24">
-                                        <path class="fill-current text-gray-300 group-hover:text-cyan-300"  d="M19,4h-4.021C13.334,4,12,5.334,12,6.979l0,0v0C12,5.334,10.666,4,9.021,4H5C3.343,4,2,5.343,2,7v10c0,1.657,1.343,3,3,3h5.277c0.346,0.595,0.984,1,1.723,1s1.376-0.405,1.723-1H19c1.657,0,3-1.343,3-3V7C22,5.343,20.657,4,19,4z" opacity=".35" fill="#5B5B5B" />
-                                        <path class="fill-current text-gray-300 group-hover:text-cyan-300"  d="M6,9H5C4.447,9,4,8.552,4,8s0.447-1,1-1h1c0.553,0,1,0.448,1,1S6.553,9,6,9z" fill="#5B5B5B" />
-                                        <circle class="fill-current text-gray-600 group-hover:text-cyan-600" cx="9" cy="8" r="1" fill="#5B5B5B" />
-                                        <path class="fill-current text-gray-300 group-hover:text-cyan-300"  d="M6,13H5c-0.553,0-1-0.448-1-1s0.447-1,1-1h1c0.553,0,1,0.448,1,1S6.553,13,6,13z" fill="#5B5B5B" />
-                                        <circle class="fill-current text-gray-600 group-hover:text-cyan-600" cx="9" cy="12" r="1" fill="#5B5B5B" />
-                                        <path class="fill-current text-gray-300 group-hover:text-cyan-300" d="M6,17H5c-0.553,0-1-0.448-1-1s0.447-1,1-1h1c0.553,0,1,0.448,1,1S6.553,17,6,17z" fill="#5B5B5B" />
-                                        <circle class="fill-current text-gray-600 group-hover:text-cyan-600" cx="9" cy="16" r="1" fill="#5B5B5B" />
-                                        <path class="fill-current text-gray-300 group-hover:text-cyan-300" d="M16,9h-1c-0.553,0-1-0.448-1-1s0.447-1,1-1h1c0.553,0,1,0.448,1,1S16.553,9,16,9z" fill="#5B5B5B" />
-                                        <circle class="fill-current text-gray-600 group-hover:text-cyan-600" cx="19" cy="8" r="1" fill="#5B5B5B" />
-                                        <path class="fill-current text-gray-300 group-hover:text-cyan-300" d="M16,13h-1c-0.553,0-1-0.448-1-1s0.447-1,1-1h1c0.553,0,1,0.448,1,1S16.553,13,16,13z" fill="#5B5B5B" />
-                                        <circle class="fill-current text-gray-600 group-hover:text-cyan-600" cx="19" cy="12" r="1" fill="#5B5B5B" />
-                                      </svg>
-                                <span class="group-hover:text-gray-700">Department</span>
-                                </a>
-                            </li> --}}
                             <li class="min-w-max">
                                 <a href="module" class="bg group flex items-center space-x-4 px-4 py-3 text-gray-600">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="-ml-1 h-6 w-6" viewBox="0 0 24 24">
@@ -126,6 +108,23 @@
                                         <path class="fill-current text-gray-300 group-hover:text-cyan-300" d="M19,14c-2.761,0-5,2.239-5,5s2.239,5,5,5s5-2.239,5-5S21.761,14,19,14z M21.619,18.619l-2.5,2.5c-0.165,0.165-0.385,0.256-0.619,0.256s-0.454-0.091-0.619-0.256l-1.5-1.5c-0.341-0.342-0.341-0.896,0-1.238c0.341-0.34,0.896-0.34,1.237,0l0.881,0.882l1.881-1.882c0.341-0.34,0.896-0.34,1.237,0C21.96,17.723,21.96,18.277,21.619,18.619z" fill="#5B5B5B" />
                                       </svg>
                                 <span class="group-hover:text-gray-700">Module</span>
+                                </a>
+                            </li>
+                            <li class="min-w-max">
+                                <a href="departmentsmodule" class="bg group flex items-center space-x-4 px-4 py-3 text-gray-600">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="-ml-1 h-6 w-6" viewBox="0 0 24 24">
+                                        <path class="fill-current text-gray-300 group-hover:text-cyan-300" d="M7.5,21h-4C2.672,21,2,20.328,2,19.5v-15C2,3.672,2.672,3,3.5,3h4C8.328,3,9,3.672,9,4.5v15C9,20.328,8.328,21,7.5,21z" opacity=".35" fill="#5B5B5B" />
+                                        <path class="fill-current text-gray-300 group-hover:text-cyan-300" d="M20.5,21.75h-4c-0.828,0-1.5-1.422-1.5-2.25v-12C15,6.672,15.672,6,16.5,6h4C21.328,6,22,6.672,22,7.5v12C22,20.328,21.328,21.75,20.5,21.75z" opacity=".35" fill="#5B5B5B" />
+                                        <circle class="fill-current text-gray-600 group-hover:text-cyan-600" cx="12" cy="18" r="1" opacity=".35" fill="#5B5B5B" />
+                                        <circle class="fill-current text-gray-600 group-hover:text-cyan-600" cx="5.5" cy="17.5" r="1.5" fill="#5B5B5B" />
+                                        <path class="fill-current text-gray-300 group-hover:text-cyan-300" d="M13.5,8h-3C9.672,8,9,8.672,9,9.5v10c0,0.828,0.672,1.5,1.5,1.5h3c0.828,0,1.5-0.672,1.5-1.5v-10C15,8.672,14.328,8,13.5,8z M12,19c-0.552,0-1-0.448-1-1c0-0.552,0.448-1,1-1s1,0.448,1,1C13,18.552,12.552,19,12,19z" fill="#5B5B5B" />
+                                        <path class="fill-current text-gray-300 group-hover:text-cyan-300" d="M7,7H4C3.447,7,3,6.552,3,6s0.447-1,1-1h3c0.553,0,1,0.448,1,1S7.553,7,7,7z" fill="#5B5B5B" />
+                                        <path class="fill-current text-gray-300 group-hover:text-cyan-300" d="M7,10H4c-0.553,0-1-0.448-1-1s0.447-1,1-1h3c0.553,0,1,0.448,1,1S7.553,10,7,10z" fill="#5B5B5B" />
+                                        <path class="fill-current text-gray-300 group-hover:text-cyan-300" d="M20,10h-3c-0.553,0-1-0.448-1-1s0.447-1,1-1h3c0.553,0,1,0.448,1,1S20.553,10,20,10z" fill="#5B5B5B" />
+                                        <path class="fill-current text-gray-300 group-hover:text-cyan-300" d="M20,13h-3c-0.553,0-1-0.448-1-1s0.447-1,1-1h3c0.553,0,1,0.448,1,1S20.553,13,20,13z" fill="#5B5B5B" />
+                                        <path class="fill-current text-gray-300 group-hover:text-cyan-300" d="M19,14c-2.761,0-5,2.239-5,5s2.239,5,5,5s5-2.239,5-5S21.761,14,19,14z M21.619,18.619l-2.5,2.5c-0.165,0.165-0.385,0.256-0.619,0.256s-0.454-0.091-0.619-0.256l-1.5-1.5c-0.341-0.342-0.341-0.896,0-1.238c0.341-0.34,0.896-0.34,1.237,0l0.881,0.882l1.881-1.882c0.341-0.34,0.896-0.34,1.237,0C21.96,17.723,21.96,18.277,21.619,18.619z" fill="#5B5B5B" />
+                                      </svg>
+                                <span class="group-hover:text-gray-700">Depart.. Module</span>
                                 </a>
                             </li>
                             <li class="min-w-max">
