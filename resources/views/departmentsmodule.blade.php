@@ -85,7 +85,7 @@
                           {{$departmentmodules->Year}}
                         </td>
                         <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                          
+                          {{$departmentmodules->semester}}
                         </td>
                         <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                             <?php $module = DB::table('modules')->where('module_code',$departmentmodules->module)->value('module_name');?>
