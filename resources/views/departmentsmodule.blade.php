@@ -22,7 +22,7 @@
               data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body relative p-4">
-            <form class="" action="/module/create" method="POST">
+            <form class="" action="/departmentsmodule/create" method="POST">
                 @csrf
                 <div class="form-check mb-6">
                   <div class="flex justify-center">

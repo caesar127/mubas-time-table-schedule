@@ -37,10 +37,15 @@ class DepartmentmoduleController extends Controller
     {
         $validated = $request->validate([
             'department'=>'required',
-            'modules'=>'required',
+            'year'=>'required',
+            'semester'=>'required',
+            'module'=>'required',
         ]);
 
-        department_module::create($validated);
+        
+        dd(department_module::create($validated));
+        
+        return redirect('/departmentsmodule')->with('message','Department Module added successfully');
     }
 
     /**
