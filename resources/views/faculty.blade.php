@@ -66,7 +66,8 @@
                           {{$faculties->name}}
                         </td>
                         <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                          {{$faculties->name}}
+                          <?php $departments = DB::table('department')->where('faculty',$faculties->faculty_code)->get();?>
+                        {{count($departments)}}
                         </td>
                         <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                           <div class="flex justify-center">
