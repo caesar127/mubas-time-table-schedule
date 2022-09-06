@@ -62,9 +62,9 @@ class FacultyController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(faculty $faculty)
     {
-        //
+        return view('Ufaculty', compact('faculty'));
     }
 
     /**
@@ -74,9 +74,16 @@ class FacultyController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, faculty $faculty)
     {
-        //
+
+        $request->validate([
+            'name' => 'required',
+        ]);
+
+        $faculty->update($request->all());
+        
+        return redirect('/faculty')->with('message','Faculty Updated successfully');
     }
 
     /**
