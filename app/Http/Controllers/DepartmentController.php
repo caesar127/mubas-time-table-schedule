@@ -64,9 +64,9 @@ class DepartmentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(department $id)
+    public function edit(department $department)
     {
-        return view('/update_department', ['department' => $id]);
+        return view('/update_department', ['department' => $department]);
     }
 
     /**
