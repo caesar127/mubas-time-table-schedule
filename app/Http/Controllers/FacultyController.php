@@ -64,7 +64,7 @@ class FacultyController extends Controller
      */
     public function edit(faculty $faculty)
     {
-        return view('Ufaculty', compact('faculty'));
+        return view('update_faculty', compact('faculty'));
     }
 
     /**
