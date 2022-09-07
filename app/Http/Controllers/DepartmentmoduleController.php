@@ -67,8 +67,7 @@ class DepartmentmoduleController extends Controller
      */
     public function edit(department_module $department_module)
     {
-        dd($department_module);
-        return view('update_departmentsmodule', compact('departmentmodule'));
+        return view('update_departmentsmodule', compact('department_module'));
     }
 
     /**

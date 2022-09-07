@@ -90,7 +90,11 @@
                                     <a class=" dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100 " href="{{ route('room.edit', $rooms->room_code) }}">Update</a >
                                   </li>
                                   <li>
-                                    <a class=" dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100 " href="#">Delete</a >
+                                    <form action="{{ route('room.destroy', $rooms->room_code) }}" method="POST">
+                                      @csrf
+                                      @method('DELETE')
+                                      <button type="submit" class="dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100">Delete</button>
+                                    </form>
                                   </li>
                                 </ul>
                               </div>

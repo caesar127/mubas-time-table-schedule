@@ -47,7 +47,7 @@
                     </div>
                   </div>
                 </div>
-                <div class="form-group mb-6"><input type="text" class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" name="year" placeholder="Semester">
+                <div class="form-group mb-6"><input type="text" class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" name="year" placeholder="Year">
                     @error('module_name')
                     <p class="text-red-5000 text-xs mt-1">{{$message}}</p>
                     @enderror
@@ -80,6 +80,9 @@
         </div>
       </div>
     </div>
+    <script>
+    $(document).on('click', '#Checkbox', function(e){});
+    </script>
 
     <div style="padding: 10px">
       <div class="flex flex-col">
@@ -123,7 +126,7 @@
                                 </a>
                                 <ul class=" dropdown-menu min-w-max absolute bg-white text-base z-50 float-left py-2 list-none text-left rounded-lg shadow-lg mt-1 hidden m-0 bg-clip-padding border-none" aria-labelledby="dropdownMenuButton2">
                                   <li>
-                                    <a class=" dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100 " href="{{ route('departmentsmodule.edit', $departmentmodules->code) }}">Update</a>
+                                    <a class=" dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100 " href="{{ route('departmentsmodule.edit', $departmentmodules->code) }}">Update</a >
                                   </li>
                                   <li>
                                     <form action="{{ route('departmentsmodule.destroy',$departmentmodules->code) }}" method="POST">

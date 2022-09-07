@@ -4,7 +4,7 @@
 </style>
 <div style="background: #fff; width: 40%; border-radius: 20px; margin-top:10%; margin-left:30%;">
     <div style="justify-content: space-between; display: flex; padding: 10px;">
-        <h1 style="font-weight: 500; font-size: x-large; color: #545454;">UPDATE DEPARTMENT</h1>
+        <h1 style="font-weight: 500; font-size: x-large; color: #545454;">UPDATE DEPARTMENT MODULE</h1>
     </div>
 
     <form class="" action="{{route('departmentsmodule.update', $department_module->code)}}" method="POST" style="padding: 20px;">

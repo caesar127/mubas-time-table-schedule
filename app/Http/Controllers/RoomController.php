@@ -76,9 +76,16 @@ class RoomController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, room $room)
     {
-        //
+        $request->validate([
+            'name'=>'required',
+            'sits'=>'required',
+        ]);
+
+        $room->update($request->all());
+        
+        return redirect('/room')->with('message','Room Updated successfully');
     }
 
     /**
@@ -87,8 +94,9 @@ class RoomController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(room $room)
     {
-        //
+        $room->delete();
+        return redirect('/room')->with('message','Room Deleted successfully');
     }
 }

@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class department_module extends Model
 {
     use HasFactory;
+    
     protected $table = 'department_module';
     protected $primaryKey = 'code';
     public $incrementing = false;
