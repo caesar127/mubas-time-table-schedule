@@ -128,7 +128,7 @@
                                 </a>
                             </li>
                             <li class="min-w-max">
-                                <a href="#" class="bg group flex items-center space-x-4 px-4 py-3 text-gray-600">
+                                <a href="timetable" class="bg group flex items-center space-x-4 px-4 py-3 text-gray-600">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="-ml-1 h-6 w-6" viewBox="0 0 24 24">
                                         <path class="fill-current text-gray-600 group-hover:text-cyan-600" d="M18,21H6c-1.657,0-3-1.343-3-3V7h18v11C21,19.657,19.657,21,18,21z" opacity=".35"  />
                                         <path class="fill-current text-gray-600 group-hover:text-cyan-600" d="M18,3H6C4.343,3,3,4.343,3,6v1h18V6C21,4.343,19.657,3,18,3z"  />
@@ -176,14 +176,6 @@
                                 </a>
                             </li>
                         </ul>
-                    </div>
-                    <div class="w-max -mb-3">
-                        <a href="#" class="group flex items-center space-x-4 rounded-md px-4 py-3 text-gray-600">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 group-hover:fill-cyan-600" viewBox="0 0 20 20" fill="currentColor">
-                                <path fill-rule="evenodd" d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z" clip-rule="evenodd" />
-                            </svg>
-                            <span class="group-hover:text-gray-700">Settings</span>
-                        </a>
                     </div>
                 </div>
             </div>
