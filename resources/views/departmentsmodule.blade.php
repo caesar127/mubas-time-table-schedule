@@ -80,9 +80,6 @@
         </div>
       </div>
     </div>
-    <script>
-    $(document).on('click', '#Checkbox', function(e){});
-    </script>
 
     <div style="padding: 10px">
       <div class="flex flex-col">
@@ -126,7 +123,7 @@
                                 </a>
                                 <ul class=" dropdown-menu min-w-max absolute bg-white text-base z-50 float-left py-2 list-none text-left rounded-lg shadow-lg mt-1 hidden m-0 bg-clip-padding border-none" aria-labelledby="dropdownMenuButton2">
                                   <li>
-                                    <a class=" dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100 " href="{{ route('departmentsmodule.edit', $departmentmodules->code) }}">Update</a >
+                                    <a class=" dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100 " href="{{ route('departmentsmodule.edit', $departmentmodules->code) }}">Update</a>
                                   </li>
                                   <li>
                                     <form action="{{ route('departmentsmodule.destroy',$departmentmodules->code) }}" method="POST">

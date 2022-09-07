@@ -67,7 +67,8 @@ class DepartmentmoduleController extends Controller
      */
     public function edit(department_module $department_module)
     {
-        return view('update_departmentsmodule', compact('department_module'));
+        dd($department_module);
+        return view('update_departmentsmodule', compact('departmentmodule'));
     }
 
     /**
@@ -97,9 +98,9 @@ class DepartmentmoduleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(department_module $department_module)
+    public function destroy(department_module $departmentmodule)
     {
-        $department_module->delete();
+        dd($departmentmodule->delete());
         return redirect('/departmentsmodule')->with('message','Department Module deleted successfully');
     }
 }

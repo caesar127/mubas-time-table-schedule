@@ -64,9 +64,9 @@ class RoomController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(room $room)
     {
-        //
+        return view('update_room', compact('room'));
     }
 
     /**
