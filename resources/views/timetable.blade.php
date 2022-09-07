@@ -88,24 +88,12 @@
                           </div>
                         </td>
                     </tr class="bg-white border-b">
-                  
-                    @endforeach
-                  
-                    @else
-                    <tr class="bg-white border-b">
-                      <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">No faculties found</td>
-                    </tr class="bg-white border-b">
-                    @endunless
                 </tbody>
               </table>
             </div>
           </div>
         </div>
       </div>
-    </div>
-
-    <div class="p-4 pt-0">
-      {{$faculty->links()}}
     </div>
 </div>
 @endsection
