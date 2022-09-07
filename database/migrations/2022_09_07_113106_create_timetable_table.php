@@ -15,6 +15,8 @@ return new class extends Migration
     {
         Schema::create('timetable', function (Blueprint $table) {
             $table->id();
+            $table->string('year');
+            $table->string('semester');
             $table->string('faculty');
             $table->string('class');
             $table->date('date');
