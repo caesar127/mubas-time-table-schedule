@@ -5,6 +5,7 @@ use App\Http\Controllers\ModuleController;
 use App\Http\Controllers\ClassesController;
 use App\Http\Controllers\FacultyController;
 use App\Http\Controllers\LecturerController;
+use App\Http\Controllers\TimetableController;
 use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\DepartmentmoduleController;
 
@@ -29,3 +30,5 @@ Route::resource('/departmentsmodule', DepartmentmoduleController::class);
 Route::resource('/classes', ClassesController::class);
 // Rooms Routes
 Route::resource('/room', RoomController::class);
+// Timetable Routes
+Route::resource('/timetable', TimetableController::class);
