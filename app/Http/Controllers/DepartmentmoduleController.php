@@ -65,8 +65,9 @@ class DepartmentmoduleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(department_module $department_module)
+    public function edit($department_module)
     {
+        $department_module = department_module::find($department_module);
         return view('update_departmentsmodule', compact('department_module'));
     }
 
@@ -77,7 +78,7 @@ class DepartmentmoduleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, department_module $department_module)
+    public function update(Request $request, $department_module)
     {
         $request->validate([
             'department'=>'required',
@@ -86,6 +87,7 @@ class DepartmentmoduleController extends Controller
             'module'=>'required',
         ]);
 
+        $department_module = department_module::find($department_module);
         $department_module->update($request->all());
         
         return redirect('/departmentsmodule')->with('message','Department Module Updated successfully');
@@ -97,9 +99,10 @@ class DepartmentmoduleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(department_module $departmentmodule)
+    public function destroy($departmentmodule)
     {
-        dd($departmentmodule->delete());
+        $departmentmodule = department_module::find($departmentmodule);
+        $departmentmodule->delete();
         return redirect('/departmentsmodule')->with('message','Department Module deleted successfully');
     }
 }
