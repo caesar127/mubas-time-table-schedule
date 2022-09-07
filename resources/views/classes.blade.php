@@ -22,7 +22,7 @@
               data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body relative p-4">
-            <form class="" action="/faculty/create" method="POST">
+            <form class="" action="{{ route('classes.store') }}" method="POST">
                 @csrf
                 <div class="form-group mb-6"><input type="text" class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" name="class_code" placeholder="Class Code">
                   @error('class_code')
@@ -34,17 +34,29 @@
                   <p class="text-red-5000 text-xs mt-1">{{$message}}</p>
                   @enderror
                 </div>
-                <div class="form-group mb-6"><input type="text" class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" name="department" placeholder="Department">
-                  @error('department')
-                  <p class="text-red-5000 text-xs mt-1">{{$message}}</p>
-                  @enderror
+                <div class="form-check mb-6">
+                  <div class="flex justify-center">
+                    <div class="mb-3 xl:w-96">
+                      <select class="form-select appearance-none block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding bg-no-repeat border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" aria-label="Default select example" name="department">
+                          <option selected>Departments</option>
+                          <?php $department =DB::table('department')->select('department_code', 'name') ->get();;?>
+                          @unless (count($department) == 0)
+                            @foreach ($department as $departments)
+                              <option value="{{$departments->department_code}}">{{$departments->name}}</option>
+                            @endforeach
+                          @else
+                            <option>No departments available</option>
+                          @endunless
+                      </select>
+                    </div>
+                  </div>
                 </div>
                 <div class="form-group mb-6"><input type="text" class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" name="students" placeholder="Students">
                   @error('students')
                   <p class="text-red-5000 text-xs mt-1">{{$message}}</p>
                   @enderror
                 </div>
-                <div class="form-group mb-6"><input type="text" class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" name="status" placeholder="Status">
+                <div class="form-group mb-6" hidden><input type="text" class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" name="status" value="Active">
                   @error('status')
                   <p class="text-red-5000 text-xs mt-1">{{$message}}</p>
                   @enderror
@@ -78,18 +90,18 @@
                   @unless (count($class) == 0)
                   @foreach ($class as $classes)
                     <tr class="bg-white border-b">
-                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{{$departments->class_code}}</td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{{$classes->class_code}}</td>
                         <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                          {{$departments->name}}
+                          {{$classes->name}}
                         </td>
                         <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                          {{$departments->department}}
+                          {{$classes->department}}
                         </td>
                         <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                          {{$departments->students}}
+                          {{$classes->students}}
                         </td>
                         <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                          {{$departments->status}}
+                          {{$classes->status}}
                         </td>
                         <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                           <div class="flex justify-center">
@@ -102,10 +114,14 @@
                                 </a>
                                 <ul class=" dropdown-menu min-w-max absolute bg-white text-base z-50 float-left py-2 list-none text-left rounded-lg shadow-lg mt-1 hidden m-0 bg-clip-padding border-none" aria-labelledby="dropdownMenuButton2">
                                   <li>
-                                    <a class=" dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100 " href="#">Update</a >
+                                    <a class=" dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100 " href="{{ route('classes.edit', $classes->class_code)}}">Update</a >
                                   </li>
                                   <li>
-                                    <a class=" dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100 " href="#">Delete</a >
+                                    <form action="{{ route('classes.destroy', $classes->class_code ) }}" method="POST">
+                                      @csrf
+                                      @method('DELETE')
+                                      <button type="submit" class="dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100">Delete</button>
+                                    </form>
                                   </li>
                                 </ul>
                               </div>

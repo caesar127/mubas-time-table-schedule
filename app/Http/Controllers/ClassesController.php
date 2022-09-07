@@ -65,9 +65,10 @@ class ClassesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($classes)
     {
-        //
+        $classes = classes::find($classes);
+        return view('update_classes', compact('classes'));
     }
 
     /**
@@ -77,9 +78,19 @@ class ClassesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $classes)
     {
-        //
+        $request->validate([
+            'name'=>'required',
+            'department'=>'required',
+            'students'=>'required',
+            'status'=>'required',
+        ]);
+
+        $class_code = classes::find($classes);
+        $class_code->update($request->all());
+        
+        return redirect('/classes')->with('message','Class Updated successfully');
     }
 
     /**
@@ -88,8 +99,10 @@ class ClassesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($classes)
     {
-        //
+        $class_code = classes::find($classes);
+        $class_code->delete();
+        return redirect('/classes')->with('message','Class deleted successfully');
     }
 }
