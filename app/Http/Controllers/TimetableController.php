@@ -38,29 +38,33 @@ class TimetableController extends Controller
      */
     public function store(Request $request)
     {
-        $input_date = $request->input('date');
+        $this->modules = [ 0 => 'Others' ];
+        foreach(department_module::all() as $module){
+            $exam_date =  $this->allocate_date($request->input('date'), $module->module);
+            $this->modules[$module->module] = date('D', $exam_date);
+            
+        }
+        dd($this->modules);
+    }
+
+    public function allocate_date($input_date, $module){
+        $date = $input_date;
         $input_date = date('d/m/y', strtotime($input_date));
         $input_date = strtotime($input_date);
         $start_date = strtotime("+70 day", $input_date);
         $end_date = strtotime("+80 day", $input_date);
-        
-        $modules = department_module::get();
- 
-        $modules = $modules->reject(function ($module) {
-            return $module->cancelled;
-        });
-
-        foreach($modules as $module){
-            $exam_date= mt_rand($start_date,$end_date);
-
-            $day = date('D', $exam_date);
-            if ($day == 'Sun' || $day == 'Sat'){
-                $this->store($request);
-            }else{
-                
-            }
-            dd(date('D', $exam_date));
+        $exam_date= mt_rand($start_date,$end_date);
+        $day = date('D', $exam_date);
+        if ($day == 'Sun' || $day == 'Sat'){
+            $this->allocate_date($date, $module);
+        }else{
+            $this->check_classes($module);
+            return $exam_date;
         }
+    }
+
+    public function check_classes($module){
+
     }
 
     /**
