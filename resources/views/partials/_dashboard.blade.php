@@ -28,7 +28,8 @@
           <img src="images/icons8-faculty-100.png" alt="" width="80px">
         </div>
         <div class="" style="font-size: 20px; text-align: right; padding-right: 0.8rem; padding-top: 2.5rem;">
-          <p>8</p>
+          <p><?php $Faculties = DB::table('faculty')->get();?>
+            {{count($Faculties)}}</p>
           <p>Faculties</p>
         </div>
       </div>
@@ -37,8 +38,9 @@
           <img src="images/icons8-department-100.png" alt="" width="80px">
         </div>
         <div class="" style="font-size: 20px; text-align: right; padding-right: 0.8rem; padding-top: 2.5rem;">
-          <p>8</p>
-          <p>Departm...</p>
+          <p><?php $departments = DB::table('department')->get();?>
+            {{count($departments)}}</p>
+          <p>Department</p>
         </div>
       </div>
       <div class="grid-item" style="display: flex; justify-content: space-between;">
@@ -46,7 +48,8 @@
           <img src="images/icons8-training-100 (1).png" alt="" width="80px">
         </div>
         <div class="" style="font-size: 20px; text-align: right; padding-right: 0.8rem; padding-top: 2.5rem;">
-          <p>8</p>
+          <p><?php $lecturer = DB::table('lecturer')->get();?>
+            {{count($lecturer)}}</p>
           <p>Lecturers</p>
         </div>
       </div>
@@ -55,7 +58,8 @@
           <img src="images/module.png" alt="" width="80px">
         </div>
         <div class="" style="font-size: 20px; text-align: right; padding-right: 0.8rem; padding-top: 2.5rem;">
-          <p>8</p>
+          <p><?php $module = DB::table('module')->get();?>
+            {{count($module)}}</p>
           <p>Modules</p>
         </div>
       </div>
@@ -64,7 +68,8 @@
           <img src="images/icons8-class-100.png" alt="" width="80px">
         </div>
         <div class="" style="font-size: 20px; text-align: right; padding-right: 0.8rem; padding-top: 2.5rem;">
-          <p>8</p>
+          <p><?php $classes = DB::table('classes')->get();?>
+            {{count($classes)}}</p>
           <p>Classes</p>
         </div>
       </div>
@@ -73,7 +78,8 @@
           <img src="images/icons8-room-100.png" alt="" width="80px">
         </div>
         <div class="" style="font-size: 20px; text-align: right; padding-right: 0.8rem; padding-top: 2.5rem;">
-          <p>8</p>
+          <p><?php $room = DB::table('room')->get();?>
+            {{count($room)}}</p>
           <p>Room</p>
         </div>
       </div>
