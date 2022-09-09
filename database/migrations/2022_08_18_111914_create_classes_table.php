@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('department');
             $table->string('students');
+            $table->string('year');
             $table->string('status');
             $table->index('department');
             $table->foreign('department')->references('department_code')->on('department')->onDelete('cascade');

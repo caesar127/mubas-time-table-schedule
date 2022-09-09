@@ -14,7 +14,7 @@ class classes extends Model
     public $incrementing = false;
     public $keyType = "string";
 
-    protected $fillable = ['class_code','name','department','students','status'];
+    protected $fillable = ['class_code','name','department','students','year','status'];
 
     public function scopeFilter($query, array $filters) {
         if($filters['search'] ?? false) {
