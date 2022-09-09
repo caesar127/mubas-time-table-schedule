@@ -24,7 +24,7 @@ class TimetableController extends Controller
      */
     public function index()
     {
-        return view('timetable', ['timetable' => department::groupBy('year', 'semester')->filter(request(['search']))->SimplePaginate(4)]);
+        return view('timetable', ['timetable' => timetable::groupBy('year', 'semester')->filter(request(['search']))->SimplePaginate(4)]);
     }
 
     /**
