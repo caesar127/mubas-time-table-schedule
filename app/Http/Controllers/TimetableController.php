@@ -4,9 +4,16 @@ namespace App\Http\Controllers;
 
 use DateTime;
 use DateInterval;
-use App\Models\department_module;
+use App\Models\room;
 use App\Models\module;
+use App\Models\classes;
+use App\Models\timetable;
+use App\Models\department;
 use Illuminate\Http\Request;
+use App\Models\department_module;
+
+use function GuzzleHttp\Promise\each;
+use function PHPUnit\Framework\returnValue;
 
 class TimetableController extends Controller
 {
@@ -17,7 +24,7 @@ class TimetableController extends Controller
      */
     public function index()
     {
-        return view('timetable');
+        return view('timetable', ['timetable' => department::groupBy('year', 'semester')->filter(request(['search']))->SimplePaginate(4)]);
     }
 
     /**
@@ -38,14 +45,51 @@ class TimetableController extends Controller
      */
     public function store(Request $request)
     {
-        $this->modules = [ 0 => 'Others' ];
-        foreach(department_module::all() as $module){
-            $exam_date =  $this->allocate_date($request->input('date'), $module->module);
-            $this->modules[$module->module] = date('D', $exam_date);
-            
+        $count = department_module::where('semester', '=', $request->input('semester'))->get();
+        $time_table = timetable::where([['year', '=', $request->input('year')],['semester', '=', $request->input('semester')]])->get();
+        if(count($time_table) == 0){
+            do {
+                $this->modules = [ 0 => 'Others' ];
+                foreach(department_module::where('semester', '=', $request->input('semester'))->get() as $module){
+                    $faculty = department::where('department_code', '=', $module->department)->get();
+                    $class = classes::where('department', '=', $module->department)->get();
+                    $examdate =  $this->allocate_date($request->input('date'), $module->module);
+                    $exam_date =  date('y/m/d',$this->allocate_date($request->input('date'), $module->module));
+                    $this->modules[$module->module] = date('D', $examdate);
+                    $exam = timetable::where([['class', '=', $class[0]->class_code],['date', '=', $exam_date]])->get();
+                    $time = $this->time();
+                    $room = $this->select_room($class[0]->students);
+                    $examroom = timetable::where([['room', '=', $class[0]->class_code],['time', '=', $time]])->get();
+                    if(count($exam) == 0){
+                        if(count($examroom) == 0){
+                            timetable::insert([
+                                'year' => $request->input('year'),
+                                'semester' => $request->input('semester'),
+                                'faculty' => $faculty[0]->faculty,
+                                'class' => $class[0]->class_code,
+                                'date' => $exam_date,
+                                'time' => $time,
+                                'hours' => 3,
+                                'students' => $class[0]->students,
+                                'room' => $room,
+                                'module' => $module->module
+                            ]);
+                        }else{
+                            // return 'room is occupied';
+                        }
+                    }else{
+                        // return 'Class is occupied';
+                    }
+                }
+                $count1 = timetable::where([['year', '=', $request->input('year')],['semester', '=', $request->input('semester')]])->get();
+            } while (count($count) < count($count1));
+        }else{
+            return redirect('/timetable')->with('message','Time table already exists');
         }
-        dd($this->modules);
+        return redirect('/timetable')->with('message','Time table created Successfully');
     }
+
+
 
     public function allocate_date($input_date, $module){
         $date = $input_date;
@@ -58,13 +102,21 @@ class TimetableController extends Controller
         if ($day == 'Sun' || $day == 'Sat'){
             $this->allocate_date($date, $module);
         }else{
-            $this->check_classes($module);
             return $exam_date;
         }
     }
 
-    public function check_classes($module){
+    public function time(){
+        $morning = date('H:i:s', strtotime('7:30 AM'));
+        $afternoon = date('H:i:s', strtotime('1:00 PM'));
+        $array = array($morning, $afternoon);
+        $time = $array[rand(0, count($array) - 1)];
+        return $time; 
+    }
 
+    public function select_room($students){
+        $room = room::where('sits', '>=', $students)->inRandomOrder()->first();
+        return $room->name;
     }
 
     /**
