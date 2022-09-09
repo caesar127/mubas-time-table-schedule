@@ -64,8 +64,10 @@
                   </tr>
                 </thead class="">
                 <tbody>
+                  @unless (count($timetable) == 0)
+                  @foreach ($timetable as $timetables)
                     <tr class="bg-white border-b">
-                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900"></td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{{$timetables->year}}</td>
                         
                         <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                           <div class="flex justify-center">
@@ -96,6 +98,12 @@
                           </div>
                         </td>
                     </tr class="bg-white border-b">
+                    @endforeach
+                    @else
+                    <tr class="bg-white border-b">
+                      <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">No Time tables found</td>
+                    </tr class="bg-white border-b">
+                    @endunless
                 </tbody>
               </table>
             </div>
