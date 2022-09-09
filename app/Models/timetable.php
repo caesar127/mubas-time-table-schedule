@@ -11,4 +11,11 @@ class timetable extends Model
     protected $table = 'timetable';
 
     protected $fillable = ['year','semester','faculty','class','date','time','hours','students','room','module'];
+
+    public function scopeFilter($query, array $filters) {
+        if($filters['search'] ?? false) {
+            $query->where('year', 'like', '%' . request('search') . '%')
+                ->orWhere('semester', 'like', '%' . request('search') . '%');
+        }
+    }
 }
