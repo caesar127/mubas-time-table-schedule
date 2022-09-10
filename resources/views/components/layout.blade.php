@@ -90,7 +90,7 @@
                                         <path class="fill-current text-gray-300 group-hover:text-cyan-300" d="M16,13h-1c-0.553,0-1-0.448-1-1s0.447-1,1-1h1c0.553,0,1,0.448,1,1S16.553,13,16,13z" fill="#5B5B5B" />
                                         <circle class="fill-current text-gray-600 group-hover:text-cyan-600" cx="19" cy="12" r="1" fill="#5B5B5B" />
                                       </svg>
-                                <span class="group-hover:text-gray-700">Department</span>
+                                <span class="group-hover:text-gray-700">Programs</span>
                                 </a>
                             </li>
                             <li class="min-w-max">
@@ -124,7 +124,7 @@
                                         <path class="fill-current text-gray-300 group-hover:text-cyan-300" d="M20,13h-3c-0.553,0-1-0.448-1-1s0.447-1,1-1h3c0.553,0,1,0.448,1,1S20.553,13,20,13z" fill="#5B5B5B" />
                                         <path class="fill-current text-gray-300 group-hover:text-cyan-300" d="M19,14c-2.761,0-5,2.239-5,5s2.239,5,5,5s5-2.239,5-5S21.761,14,19,14z M21.619,18.619l-2.5,2.5c-0.165,0.165-0.385,0.256-0.619,0.256s-0.454-0.091-0.619-0.256l-1.5-1.5c-0.341-0.342-0.341-0.896,0-1.238c0.341-0.34,0.896-0.34,1.237,0l0.881,0.882l1.881-1.882c0.341-0.34,0.896-0.34,1.237,0C21.96,17.723,21.96,18.277,21.619,18.619z" fill="#5B5B5B" />
                                       </svg>
-                                <span class="group-hover:text-gray-700">Depart.. Module</span>
+                                <span class="group-hover:text-gray-700">Program Module</span>
                                 </a>
                             </li>
                             <li class="min-w-max">

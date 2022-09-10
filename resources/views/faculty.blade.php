@@ -53,7 +53,7 @@
                   <tr>
                     <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4">Faculty Code</th>
                     <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4">Name</th>
-                    <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4">No Departments</th>
+                    <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4">No Programs</th>
                     <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4">Action</th>
                   </tr>
                 </thead class="">

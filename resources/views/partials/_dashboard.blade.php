@@ -93,7 +93,7 @@
       <div class="" style="font-size: 20px; text-align: right; padding-right: 0.8rem; padding-top: 2.5rem;">
         <p><?php $departments = DB::table('department')->get();?>
           {{count($departments)}}</p>
-        <p>Department</p>
+        <p>Programs</p>
       </div>
     </div>
     <div class="grid-item" style="display: flex; justify-content: space-between;">
