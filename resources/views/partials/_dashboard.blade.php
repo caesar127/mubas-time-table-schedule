@@ -16,11 +16,7 @@
  
  
   <div style="background: #fff; height: 440px; width: 350px; border-radius: 20px; margin:20px;">
-    <h1>Today calendar (skin-black shadow-default)</h1>
-    
-    <div class="calendar-container">
-        <div id = "dycalendar-month-prev-next-button" class="dycalendar-month-prev-next-button dycalendar-container skin-purple"></div>
-    </div>
+
   </div>
   <div class="grid-container">
       <div class="grid-item" style="display: flex; justify-content: space-between;">
