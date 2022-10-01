@@ -83,10 +83,11 @@ class TimetableController extends Controller
                 }
                 $count1 = timetable::where([['year', '=', $request->input('year')],['semester', '=', $request->input('semester')]])->get();
             } while (count($count) < count($count1));
+            return redirect('/timetable')->with('message','Time table created Successfully');
         }else{
             return redirect('/timetable')->with('message','Time table already exists');
         }
-        return redirect('/timetable')->with('message','Time table created Successfully');
+        return redirect('/timetable')->with('message','Time table not created Successfully');
     }
 
 
@@ -125,9 +126,9 @@ class TimetableController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(timetable $timetable)
     {
-        //
+        // return view('timetable', compact('timetable'));
     }
 
     /**
@@ -136,9 +137,9 @@ class TimetableController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(timetable $timetable)
     {
-        //
+
     }
 
     /**
