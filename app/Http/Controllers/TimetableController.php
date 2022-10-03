@@ -47,6 +47,7 @@ class TimetableController extends Controller
     {
         $count = department_module::where('semester', '=', $request->input('semester'))->get();
         $time_table = timetable::where([['year', '=', $request->input('year')],['semester', '=', $request->input('semester')]])->get();
+        
         if(count($time_table) == 0){
             do {
                 $this->modules = [ 0 => 'Others' ];
@@ -60,6 +61,7 @@ class TimetableController extends Controller
                     $time = $this->time();
                     $room = $this->select_room($class[0]->students);
                     $examroom = timetable::where([['room', '=', $class[0]->class_code],['time', '=', $time]])->get();
+                    
                     if(count($exam) == 0){
                         if(count($examroom) == 0){
                             timetable::insert([
@@ -82,12 +84,11 @@ class TimetableController extends Controller
                     }
                 }
                 $count1 = timetable::where([['year', '=', $request->input('year')],['semester', '=', $request->input('semester')]])->get();
-            } while (count($count) < count($count1));
+            } while (count($count) == count($count1));
             return redirect('/timetable')->with('message','Time table created Successfully');
         }else{
             return redirect('/timetable')->with('message','Time table already exists');
         }
-        return redirect('/timetable')->with('message','Time table not created Successfully');
     }
 
 
