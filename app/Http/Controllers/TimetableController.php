@@ -49,7 +49,9 @@ class TimetableController extends Controller
         $time_table = timetable::where([['year', '=', $request->input('year')],['semester', '=', $request->input('semester')]])->get();
         
         if(count($time_table) == 0){
-            do {
+            $count1 = timetable::where([['year', '=', $request->input('year')],['semester', '=', $request->input('semester')]])->get();
+            
+            while (count($count1) != count($count)){
                 $this->modules = [ 0 => 'Others' ];
                 foreach(department_module::where('semester', '=', $request->input('semester'))->get() as $module){
                     $faculty = department::where('department_code', '=', $module->department)->get();
@@ -62,30 +64,75 @@ class TimetableController extends Controller
                     $room = $this->select_room($class[0]->students);
                     $examroom = timetable::where([['room', '=', $class[0]->class_code],['time', '=', $time]])->get();
                     
-                    if(count($exam) == 0){
-                        if(count($examroom) == 0){
-                            timetable::insert([
-                                'year' => $request->input('year'),
-                                'semester' => $request->input('semester'),
-                                'faculty' => $faculty[0]->faculty,
-                                'class' => $class[0]->class_code,
-                                'date' => $exam_date,
-                                'time' => $time,
-                                'hours' => 3,
-                                'students' => $class[0]->students,
-                                'room' => $room,
-                                'module' => $module->module
-                            ]);
+                    $exam_paper = timetable::where([['year', '=', $request->input('year')],['semester', '=', $request->input('semester')], ['module', '=',$module->module]])->get();
+                    if(count($exam_paper) == 0){
+                        if(count($exam) == 0){
+                            if(count($examroom) == 0){
+                                timetable::insert([
+                                    'year' => $request->input('year'),
+                                    'semester' => $request->input('semester'),
+                                    'faculty' => $faculty[0]->faculty,
+                                    'class' => $class[0]->class_code,
+                                    'date' => $exam_date,
+                                    'time' => $time,
+                                    'hours' => 3,
+                                    'students' => $class[0]->students,
+                                    'room' => $room,
+                                    'module' => $module->module
+                                ]);
+                            }else{
+                                // return 'room is occupied';
+                            }
                         }else{
-                            // return 'room is occupied';
+                            // return 'Class is occupied';
                         }
                     }else{
-                        // return 'Class is occupied';
+                        // return 'Paper has already been written';
                     }
                 }
-                $count1 = timetable::where([['year', '=', $request->input('year')],['semester', '=', $request->input('semester')]])->get();
-            } while (count($count) == count($count1));
-            return redirect('/timetable')->with('message','Time table created Successfully');
+            }
+            // do {
+            //     $this->modules = [ 0 => 'Others' ];
+            //     foreach(department_module::where('semester', '=', $request->input('semester'))->get() as $module){
+            //         $faculty = department::where('department_code', '=', $module->department)->get();
+            //         $class = classes::where('department', '=', $module->department)->get();
+            //         $examdate =  $this->allocate_date($request->input('date'), $module->module);
+            //         $exam_date =  date('y/m/d',$this->allocate_date($request->input('date'), $module->module));
+            //         $this->modules[$module->module] = date('D', $examdate);
+            //         $exam = timetable::where([['class', '=', $class[0]->class_code],['date', '=', $exam_date]])->get();
+            //         $time = $this->time();
+            //         $room = $this->select_room($class[0]->students);
+            //         $examroom = timetable::where([['room', '=', $class[0]->class_code],['time', '=', $time]])->get();
+                    
+            //         $exam_paper = timetable::where([['year', '=', $request->input('year')],['semester', '=', $request->input('semester')], ['module', '=',$module->module]])->get();
+            //         if(count($exam_paper) == 0){
+            //             if(count($exam) == 0){
+            //                 if(count($examroom) == 0){
+            //                     timetable::insert([
+            //                         'year' => $request->input('year'),
+            //                         'semester' => $request->input('semester'),
+            //                         'faculty' => $faculty[0]->faculty,
+            //                         'class' => $class[0]->class_code,
+            //                         'date' => $exam_date,
+            //                         'time' => $time,
+            //                         'hours' => 3,
+            //                         'students' => $class[0]->students,
+            //                         'room' => $room,
+            //                         'module' => $module->module
+            //                     ]);
+            //                 }else{
+            //                     // return 'room is occupied';
+            //                 }
+            //             }else{
+            //                 // return 'Class is occupied';
+            //             }
+            //         }else{
+            //             // return 'Paper has already been written';
+            //         }
+            //     }
+            //     // $count1 = timetable::where([['year', '=', $request->input('year')],['semester', '=', $request->input('semester')]])->get();
+            // } 
+            // while (count($count1) == count($count));
         }else{
             return redirect('/timetable')->with('message','Time table already exists');
         }
