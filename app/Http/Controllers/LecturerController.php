@@ -37,14 +37,18 @@ class LecturerController extends Controller
      */
     public function store(Request $request)
     {
-        $validated = $request->validate([
-            'lecturer_id'=> 'required',
-            'name'=>'required',
-            'email'=>['required','email'],
-        ]);
-        lecturer::create($validated);
-        
-        return redirect('/lecturer')->with('message','Lecturer added successfully');
+        try {
+            $validated = $request->validate([
+                'lecturer_id'=> 'required',
+                'name'=>'required',
+                'email'=>['required','email'],
+            ]);
+            lecturer::create($validated);
+            
+            return redirect('/lecturer')->with('message','Lecturer added successfully');
+        } catch (\Throwable $th) {
+            return redirect('/lecturer')->with('message','Oops!! Something went wrong');
+        }
     }
 
     /**
@@ -78,15 +82,18 @@ class LecturerController extends Controller
      */
     public function update(Request $request, lecturer $lecturer)
     {
-
-        $request->validate([
-            'name'=>'required',
-            'email'=>['required','email'],
-        ]);
-
-        $lecturer->update($request->all());
-        
-        return redirect('/lecturer')->with('message','Lecturer Updated successfully');
+        try {
+            $request->validate([
+                'name'=>'required',
+                'email'=>['required','email'],
+            ]);
+    
+            $lecturer->update($request->all());
+            
+            return redirect('/lecturer')->with('message','Lecturer Updated successfully');
+        } catch (\Throwable $th) {
+            return redirect('/lecturer')->with('message','Oops!! Something went wrong');
+        }    
     }
 
     /**
@@ -97,7 +104,12 @@ class LecturerController extends Controller
      */
     public function destroy(lecturer $lecturer)
     {
-        $lecturer->delete();
-        return redirect('/lecturer')->with('message','Lecturer Deleted successfully');
+        try {
+            $lecturer->delete();
+            return redirect('/lecturer')->with('message','Lecturer Deleted successfully');
+        } catch (\Throwable $th) {
+            return redirect('/lecturer')->with('message','Oops!! Something went wrong');
+        }
+        
     }
 }
