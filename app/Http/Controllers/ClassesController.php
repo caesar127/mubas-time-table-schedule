@@ -35,17 +35,22 @@ class ClassesController extends Controller
      */
     public function store(Request $request)
     {
-        $validated = $request->validate([
-            'class_code'=>'required',
-            'name'=>'required',
-            'department'=>'required',
-            'students'=>'required',
-            'status'=>'required',
-        ]);
-
-        classes::create($validated);
+        try {
+            $validated = $request->validate([
+                'class_code'=>'required',
+                'name'=>'required',
+                'department'=>'required',
+                'students'=>'required',
+                'status'=>'required',
+            ]);
+    
+            classes::create($validated);
+            
+            return redirect('/classes')->with('message','Classes added successfully');
+        } catch (\Throwable $th) {
+            return redirect('/classes')->with('message','Oops!! Something went wrong');
+        }
         
-        return redirect('/classes')->with('message','Classes added successfully');
     }
 
     /**
@@ -67,8 +72,13 @@ class ClassesController extends Controller
      */
     public function edit($classes)
     {
-        $classes = classes::find($classes);
-        return view('update_classes', compact('classes'));
+        try {
+            $classes = classes::find($classes);
+            return view('update_classes', compact('classes'));
+        } catch (\Throwable $th) {
+            return redirect('/classes')->with('message','Oops!! Something went wrong');
+        }
+        
     }
 
     /**
@@ -80,17 +90,22 @@ class ClassesController extends Controller
      */
     public function update(Request $request, $classes)
     {
-        $request->validate([
-            'name'=>'required',
-            'department'=>'required',
-            'students'=>'required',
-            'status'=>'required',
-        ]);
-
-        $class_code = classes::find($classes);
-        $class_code->update($request->all());
+        try {
+            $request->validate([
+                'name'=>'required',
+                'department'=>'required',
+                'students'=>'required',
+                'status'=>'required',
+            ]);
+    
+            $class_code = classes::find($classes);
+            $class_code->update($request->all());
+            
+            return redirect('/classes')->with('message','Class Updated successfully');
+        } catch (\Throwable $th) {
+            return redirect('/classes')->with('message','Oops!! Something went wrong');
+        }
         
-        return redirect('/classes')->with('message','Class Updated successfully');
     }
 
     /**
@@ -101,8 +116,13 @@ class ClassesController extends Controller
      */
     public function destroy($classes)
     {
-        $class_code = classes::find($classes);
-        $class_code->delete();
-        return redirect('/classes')->with('message','Class deleted successfully');
+        try {
+            $class_code = classes::find($classes);
+            $class_code->delete();
+            return redirect('/classes')->with('message','Class deleted successfully');
+        } catch (\Throwable $th) {
+            return redirect('/classes')->with('message','Oops!! Something went wrong');
+        }
+        
     }
 }

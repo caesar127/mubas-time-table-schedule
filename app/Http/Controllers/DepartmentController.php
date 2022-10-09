@@ -35,16 +35,20 @@ class DepartmentController extends Controller
      */
     public function store(Request $request)
     {
-        $validated = $request->validate([
-            'department_code'=>'required',
-            'name'=>'required',
-            'faculty'=>'required',
-            'duration'=>'required',
-        ]);
-
-        department::create($validated);
-        
-        return redirect('/department')->with('message','Department added successfully');
+        try {
+            $validated = $request->validate([
+                'department_code'=>'required',
+                'name'=>'required',
+                'faculty'=>'required',
+                'duration'=>'required',
+            ]);
+    
+            department::create($validated);
+            
+            return redirect('/department')->with('message','Department added successfully');
+        } catch (\Throwable $th) {
+            return redirect('/department')->with('message','Oops!! Something went wrong');
+        }
     }
 
     /**
@@ -78,15 +82,20 @@ class DepartmentController extends Controller
      */
     public function update(Request $request, department $department)
     {
-        $request->validate([
-            'name'=>'required',
-            'faculty'=>'required',
-            'duration'=>'required',
-        ]);
-
-        $department->update($request->all());
-
-        return redirect('/department')->with('message','Department updated successfully');
+        try {
+            $request->validate([
+                'name'=>'required',
+                'faculty'=>'required',
+                'duration'=>'required',
+            ]);
+    
+            $department->update($request->all());
+    
+            return redirect('/department')->with('message','Department updated successfully');
+        } catch (\Throwable $th) {
+            return redirect('/department')->with('message','Oops!! Something went wrong');
+        }
+        
     }
 
     /**
@@ -97,7 +106,11 @@ class DepartmentController extends Controller
      */
     public function destroy(department $department)
     {
-        $department->delete();
-        return redirect('/department')->with('message','Department deleted successfully');
+        try {
+            $department->delete();
+            return redirect('/department')->with('message','Department deleted successfully');
+        } catch (\Throwable $th) {
+            return redirect('/department')->with('message','Oops!! Something went wrong');
+        }
     }
 }
