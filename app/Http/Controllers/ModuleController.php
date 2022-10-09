@@ -37,16 +37,21 @@ class ModuleController extends Controller
      */
     public function store(Request $request)
     {
-        $validated = $request->validate([
-            'module_code'=>'required',
-            'module_name'=>'required',
-            'lecturer'=>'required',
-            'exam'=>'required',
-        ]);
-
-        module::create($validated);
+        try {
+            $validated = $request->validate([
+                'module_code'=>'required',
+                'module_name'=>'required',
+                'lecturer'=>'required',
+                'exam'=>'required',
+            ]);
+    
+            module::create($validated);
+            
+            return redirect('/module')->with('message','Module added successfully');
+        } catch (\Throwable $th) {
+            return redirect('/module')->with('message','Oops!! Something went wrong');
+        }
         
-        return redirect('/module')->with('message','Module added successfully');
     }
 
     /**
@@ -80,14 +85,18 @@ class ModuleController extends Controller
      */
     public function update(Request $request, module $module)
     {
-        $request->validate([
-            'module_name'=>'required',
-            'lecturer'=>'required',
-            'exam'=>'required',
-        ]);
-
-        $module->update($request->all());
-        return redirect('/module')->with('message','Module updated successfully');
+        try {
+            $request->validate([
+                'module_name'=>'required',
+                'lecturer'=>'required',
+                'exam'=>'required',
+            ]);
+    
+            $module->update($request->all());
+            return redirect('/module')->with('message','Module updated successfully');
+        } catch (\Throwable $th) {
+            return redirect('/module')->with('message','Oops!! Something went wrong');
+        }    
     }
 
     /**
@@ -98,7 +107,11 @@ class ModuleController extends Controller
      */
     public function destroy(module $module)
     {
-        $module->delete();
-        return redirect('/module')->with('message','Module deleted successfully');
+        try {
+            $module->delete();
+            return redirect('/module')->with('message','Module deleted successfully');
+        } catch (\Throwable $th) {
+            return redirect('/module')->with('message','Oops!! Something went wrong');
+        }
     }
 }
