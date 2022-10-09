@@ -38,7 +38,7 @@
                           <?php $department =DB::table('department')->select('department_code', 'name') ->get();;?>
                           @unless (count($department) == 0)
                             @foreach ($department as $departments)
-                              <option value="{{$departments->department_code}}">{{$departments->name}}</option>
+                              <option value="{{$departments->department_code}}">{{$departments->department_code}}</option>
                             @endforeach
                           @else
                             <option>No Programs available</option>
