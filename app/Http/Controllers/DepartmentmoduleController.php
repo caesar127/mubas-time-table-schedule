@@ -35,17 +35,21 @@ class DepartmentmoduleController extends Controller
      */
     public function store(Request $request)
     {
-        $validated = $request->validate([
-            'code'=>'required',
-            'department'=>'required',
-            'year'=>'required',
-            'semester'=>'required',
-            'module'=>'required',
-        ]);
-        
-        department_module::create($validated);
-        
-        return redirect('/departmentsmodule')->with('message','Department Module added successfully');
+        try {
+            $validated = $request->validate([
+                'code'=>'required',
+                'department'=>'required',
+                'year'=>'required',
+                'semester'=>'required',
+                'module'=>'required',
+            ]);
+            
+            department_module::create($validated);
+            
+            return redirect('/departmentsmodule')->with('message','Department Module added successfully');
+        } catch (\Throwable $th) {
+            return redirect('/departmentsmodule')->with('message','Oops!! Something went wrong');
+        }
     }
 
     /**
@@ -80,17 +84,21 @@ class DepartmentmoduleController extends Controller
      */
     public function update(Request $request, $department_module)
     {
-        $request->validate([
-            'department'=>'required',
-            'year'=>'required',
-            'semester'=>'required',
-            'module'=>'required',
-        ]);
-
-        $department_module = department_module::find($department_module);
-        $department_module->update($request->all());
-        
-        return redirect('/departmentsmodule')->with('message','Department Module Updated successfully');
+        try {
+            $request->validate([
+                'department'=>'required',
+                'year'=>'required',
+                'semester'=>'required',
+                'module'=>'required',
+            ]);
+    
+            $department_module = department_module::find($department_module);
+            $department_module->update($request->all());
+            
+            return redirect('/departmentsmodule')->with('message','Department Module Updated successfully');
+        } catch (\Throwable $th) {
+            return redirect('/departmentsmodule')->with('message','Oops!! Something went wrong');
+        }
     }
 
     /**
@@ -101,8 +109,12 @@ class DepartmentmoduleController extends Controller
      */
     public function destroy($departmentmodule)
     {
-        $departmentmodule = department_module::find($departmentmodule);
-        $departmentmodule->delete();
-        return redirect('/departmentsmodule')->with('message','Department Module deleted successfully');
+        try {
+            $departmentmodule = department_module::find($departmentmodule);
+            $departmentmodule->delete();
+            return redirect('/departmentsmodule')->with('message','Department Module deleted successfully');
+        } catch (\Throwable $th) {
+            return redirect('/departmentsmodule')->with('message','Oops!! Something went wrong');
+        }    
     }
 }
