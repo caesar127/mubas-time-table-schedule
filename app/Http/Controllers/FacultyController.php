@@ -35,14 +35,19 @@ class FacultyController extends Controller
      */
     public function store(Request $request)
     {
-        $validated = $request->validate([
-            'faculty_code'=>'required',
-            'name'=>'required',
-        ]);
-
-        faculty::create($validated);
+        try {
+            $validated = $request->validate([
+                'faculty_code'=>'required',
+                'name'=>'required',
+            ]);
+    
+            faculty::create($validated);
+            
+            return redirect('/faculty')->with('message','Faculty added successfully');
+        } catch (\Throwable $th) {
+            return redirect('/faculty')->with('message','Oops!! Something went wrong');
+        }
         
-        return redirect('/faculty')->with('message','Faculty added successfully');
     }
 
     /**
@@ -76,14 +81,18 @@ class FacultyController extends Controller
      */
     public function update(Request $request, faculty $faculty)
     {
-
-        $request->validate([
-            'name' => 'required',
-        ]);
-
-        $faculty->update($request->all());
+        try {
+            $request->validate([
+                'name' => 'required',
+            ]);
+    
+            $faculty->update($request->all());
+            
+            return redirect('/faculty')->with('message','Faculty Updated successfully');
+        } catch (\Throwable $th) {
+            return redirect('/faculty')->with('message','Oops!! Something went wrong');
+        }
         
-        return redirect('/faculty')->with('message','Faculty Updated successfully');
     }
 
     /**
@@ -94,7 +103,11 @@ class FacultyController extends Controller
      */
     public function destroy(faculty $faculty)
     {
-        $faculty->delete();
-        return redirect('/faculty')->with('message','Faculty Deleted successfully');
+        try {
+            $faculty->delete();
+            return redirect('/faculty')->with('message','Faculty Deleted successfully');
+        } catch (\Throwable $th) {
+            return redirect('/faculty')->with('message','Oops!! Something went wrong');
+        }        
     }
 }
