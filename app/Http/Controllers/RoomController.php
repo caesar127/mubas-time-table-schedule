@@ -35,16 +35,21 @@ class RoomController extends Controller
      */
     public function store(Request $request)
     {
-        $validated = $request->validate([
-            'room_code'=>'required',
-            'name'=>'required',
-            'sits'=>'required',
-            'status'=>'required',
-        ]);
-
-        room::create($validated);
+        try {
+            $validated = $request->validate([
+                'room_code'=>'required',
+                'name'=>'required',
+                'sits'=>'required',
+                'status'=>'required',
+            ]);
+    
+            room::create($validated);
+            
+            return redirect('/room')->with('message','Room added successfully');
+        } catch (\Throwable $th) {
+            return redirect('/room')->with('message','Oops!! Something went wrong');
+        }
         
-        return redirect('/room')->with('message','Room added successfully');
     }
 
     /**
@@ -78,14 +83,19 @@ class RoomController extends Controller
      */
     public function update(Request $request, room $room)
     {
-        $request->validate([
-            'name'=>'required',
-            'sits'=>'required',
-        ]);
-
-        $room->update($request->all());
+        try {
+            $request->validate([
+                'name'=>'required',
+                'sits'=>'required',
+            ]);
+    
+            $room->update($request->all());
+            
+            return redirect('/room')->with('message','Room Updated successfully');
+        } catch (\Throwable $th) {
+            return redirect('/room')->with('message','Oops!! Something went wrong');
+        }
         
-        return redirect('/room')->with('message','Room Updated successfully');
     }
 
     /**
@@ -96,7 +106,11 @@ class RoomController extends Controller
      */
     public function destroy(room $room)
     {
-        $room->delete();
-        return redirect('/room')->with('message','Room Deleted successfully');
+        try {
+            $room->delete();
+            return redirect('/room')->with('message','Room Deleted successfully');
+        } catch (\Throwable $th) {
+            return redirect('/room')->with('message','Oops!! Something went wrong');
+        }    
     }
 }
