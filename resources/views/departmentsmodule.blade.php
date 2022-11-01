@@ -35,7 +35,7 @@
                     <div class="mb-3 xl:w-96">
                       <select class="form-select appearance-none block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding bg-no-repeat border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" aria-label="Default select example" name="department">
                           <option selected>Programs</option>
-                          <?php $department =DB::table('department')->select('department_code', 'name') ->get();;?>
+                          <?php $department =DB::table('department')->select('department_code', 'name')->orderBy('name')->get();;?>
                           @unless (count($department) == 0)
                             @foreach ($department as $departments)
                               <option value="{{$departments->department_code}}">{{$departments->department_code}}</option>
@@ -62,7 +62,7 @@
                     <div class="mb-3 xl:w-96">
                       <select class="form-select appearance-none block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding bg-no-repeat border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" aria-label="Default select example" name="module">
                           <option selected>Module</option>
-                          <?php $module =DB::table('module')->select('module_code', 'module_name') ->get();;?>
+                          <?php $module =DB::table('module')->select('module_code', 'module_name')->orderBy('module_name')->get();?>
                           @unless (count($module) == 0)
                             @foreach ($module as $modules)
                               <option value="{{$modules->module_code}}">{{$modules->module_name}}</option>
