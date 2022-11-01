@@ -38,7 +38,7 @@
                   <div class="flex justify-center">
                       <div class="mb-3 xl:w-96">
                           <select class="form-select appearance-none block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding bg-no-repeat border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" aria-label="Default select example" name="lecturer" style="margin-bottom: 25px;">
-                              <?php $lecturer =DB::table('lecturer')->select('lecturer_id', 'name') ->get();?>
+                              <?php $lecturer =DB::table('lecturer')->select('lecturer_id', 'name')->orderBy('name')->get();?>
                               @unless (count($lecturer) == 0)
                                   @foreach ($lecturer as $lecturer)
                                   <option value="{{$lecturer->lecturer_id}}">{{$lecturer->name}}</option>
