@@ -139,9 +139,19 @@ class TimetableController extends Controller
      */
     public function show(timetable $timetable)
     {
+        // dd('run');
         // return view('timetable', compact('timetable'));
     }
 
+    // public function __invoke()
+    // {
+    //     return view('view_timetable');
+    //     // return view('view_timetable', compact('timetable'));
+    // }
+
+    public function display($timetable){
+
+    }
     /**
      * Show the form for editing the specified resource.
      *
@@ -150,7 +160,7 @@ class TimetableController extends Controller
      */
     public function edit(timetable $timetable)
     {
-
+        return view('view_timetable', compact('timetable'));
     }
 
     /**

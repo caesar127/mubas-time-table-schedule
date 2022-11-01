@@ -49,7 +49,7 @@
                           </select>
                       </div>
                   </div>
-              </div>
+                </div>
                 <div class="form-check">
                   <div class="flex justify-center">
                     <div class="mb-3 xl:w-96">
@@ -91,7 +91,7 @@
                   @unless (count($module) == 0)
                   @foreach ($module as $modules)
                     <tr class="bg-white border-b">
-                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">    {{$modules->module_code}}</td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{{$modules->module_code}}</td>
                         <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                           {{$modules->module_name}}
                         </td>
@@ -113,7 +113,7 @@
                                 </a>
                                 <ul class=" dropdown-menu min-w-max absolute bg-white text-base z-50 float-left py-2 list-none text-left rounded-lg shadow-lg mt-1 hidden m-0 bg-clip-padding border-none" aria-labelledby="dropdownMenuButton2">
                                   <li>
-                                    <a class=" dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100 " href="{{ route('module.edit', $modules->module_code) }}">Update</a >
+                                    <a class=" dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100 " href="{{ route('module.edit', $modules->module_code) }}">Update</a>
                                   </li>
                                   <li>
                                     <form action="{{ route('module.destroy',$modules->module_code) }}" method="POST">
