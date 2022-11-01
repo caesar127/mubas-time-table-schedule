@@ -33,10 +33,10 @@
             </tr>
           </thead class="">
           <tbody>
-            <tr>
               <?php $exams = DB::table('timetable')->select('module','room','class','time')->where('date',$timetables->date)->get();?>
-                @unless (count($exams) == 0)
-                    @foreach ($exams as $exam)
+              @unless (count($exams) == 0)
+                  @foreach ($exams as $exam)
+                  <tr>
                     <div style=" display: flex; justify-content: space-between;">
                       <td class="px-2 py-2 whitespace-nowrap text-sm font-medium text-gray-900">{{$exam->module}}</td>
                       <?php $module =DB::table('module')->select('module_name')->where('module_code',$exam->module)->value('module_name');?>
@@ -51,11 +51,11 @@
                       ?>
                       <td class="px-2 py-2 whitespace-nowrap text-sm font-medium text-gray-900">{{$lecturer}}</td>
                     </div>
-                    @endforeach
-                @else
-                  <p class="px-3 py-3 whitespace-nowrap text-sm font-medium text-gray-900">No exam available</p>
-                @endunless  
-            </tr>
+                  </tr>
+                  @endforeach
+              @else
+                <p class="px-3 py-3 whitespace-nowrap text-sm font-medium text-gray-900">No exam available</p>
+              @endunless
           </tbody>
         </table>
         
