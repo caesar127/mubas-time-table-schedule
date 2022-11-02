@@ -107,8 +107,8 @@ class TimetableController extends Controller
         $date = $input_date;
         $input_date = date('d/m/y', strtotime($input_date));
         $input_date = strtotime($input_date);
-        $start_date = strtotime("+70 day", $input_date);
-        $end_date = strtotime("+80 day", $input_date);
+        $start_date = strtotime("+98 day", $input_date);
+        $end_date = strtotime("+108 day", $input_date);
         $exam_date= mt_rand($start_date,$end_date);
         $day = date('D', $exam_date);
         if ($day == 'Sun' || $day == 'Sat'){
