@@ -90,15 +90,8 @@
                                         <a class=" dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100" href="/timetable/{{$timetables->year}}">View</a>
                                     </li>
                                     <li>
-                                      <a class=" dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100 " href="{{ route('timetable.edit', $timetables->year) }}">Update</a >
-                                    </li>
-                                    <li>
-                                        <form action="" method="POST">
-                                            @csrf
-                                            @method('DELETE')
-                                            <button type="submit" class="dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100">Delete</button>
-                                        </form>
-                                    </li>
+                                      <a class=" dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100" href="/download/{{$timetables->year}}">Download</a>
+                                  </li>
                                 </ul>
                               </div>
                             </div>

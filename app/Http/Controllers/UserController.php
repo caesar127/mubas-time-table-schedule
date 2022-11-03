@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+// use Barryvdh\DomPDF\PDF;
+use Barryvdh\DomPDF\Facade\Pdf as PDF;
 use App\Models\timetable;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
@@ -75,6 +78,11 @@ class UserController extends Controller
         return view('view_timetable', ['timetable' => timetable::select('date')->where('year',$id)->groupBy('date')->SimplePaginate(1)]);
     }
 
+    public function downloadPDF($id){
+        $timetable = DB::table('timetable')->where('year',$id)->get();
+        $pdf = PDF::loadView('pdf', compact('timetable'))->setPaper('A4','landscape');
+        return $pdf->download('timetable.pdf');
+    }
     /**
      * Show the form for editing the specified resource.
      *
@@ -83,7 +91,6 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
     }
 
     /**

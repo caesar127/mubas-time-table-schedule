@@ -33,6 +33,7 @@ Route::resource('/room', RoomController::class);
 // Timetable Routes
 Route::resource('/timetable', TimetableController::class);
 Route::get('/timetable/{timetable}', [UserController::class, 'show']);
+Route::get('/download/{timetable}', [UserController::class, 'downloadPDF']);
 // User Routes
 Route::resource('/', UserController::class);
 Route::post('/user/auth', [UserController::class, 'authenticate']);
