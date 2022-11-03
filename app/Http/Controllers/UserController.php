@@ -81,7 +81,7 @@ class UserController extends Controller
     public function downloadPDF($id){
         $timetable = DB::table('timetable')->where('year',$id)->get();
         $pdf = PDF::loadView('pdf', compact('timetable'))->setPaper('A4','landscape');
-        return $pdf->download('timetable.pdf');
+        return $pdf->download('Timetable.pdf');
     }
     /**
      * Show the form for editing the specified resource.
