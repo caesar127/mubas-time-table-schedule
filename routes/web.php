@@ -41,4 +41,3 @@ Route::get('/download/{timetable}', [UserController::class, 'downloadPDF']);
 Route::resource('/', UserController::class);
 Route::post('/user/auth', [UserController::class, 'authenticate']);
 Route::post('/users', [UserController::class, 'store']);
-Route::resource('/logout', [UserController::class]);
