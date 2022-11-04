@@ -30,7 +30,7 @@
                     <?php $module =DB::table('module')->select('module_name')->where('module_code',$exam->module)->value('module_name');?>
                     <td class=" whitespace-nowrap text-sm font-medium text-gray-900" style="border-style: solid; border-spacing: 0px;" >{{$module}}</td>
                     <td class=" whitespace-nowrap text-sm font-medium text-gray-900" style="border-style: solid;">{{$exam->class}}</td>
-                    <?php $class =DB::table('class')->select('students')->where('class_code',$exam->class)->value('students');?>
+                    <?php $class =DB::table('classes')->select('students')->where('class_code',$exam->class)->value('students');?>
                     <td class=" whitespace-nowrap text-sm font-medium text-gray-900" style="border-style: solid;">{{$class}}</td>
                     <td class=" whitespace-nowrap text-sm font-medium text-gray-900" style="border-style: solid;">{{$exam->room}}</td>
                     
