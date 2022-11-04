@@ -200,10 +200,10 @@
                         </div>
                     </form>
                     <div class="admin-profile" style="display: flex; padding:5px;">
-                        <a href="" >
+                        <a href="logout">
                             <img src="../../images/logout.png" width="40px" height = "40px" class="avatar rounded-circle" style="padding: 10px"/>
                         </a>&nbsp;&nbsp;
-                        <a href="">
+                        <a href="user">
                             <img src="../../images/profile.png" width="40px" height = "40px" class="avatar rounded-circle" style="padding: 5px; margin-right:20px;"/>
                         </a>
                     </div>

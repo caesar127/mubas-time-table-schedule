@@ -16,6 +16,9 @@ Route::get('/dashboard', function(){
 Route::get('/view_timetable', function(){
     return view('view_timetable');
 });
+Route::get('/user', function(){
+    return view('user');
+});
 // Lecturer Routes
 Route::resource('/lecturer', LecturerController::class);
 // Department Routes
@@ -37,3 +40,5 @@ Route::get('/download/{timetable}', [UserController::class, 'downloadPDF']);
 // User Routes
 Route::resource('/', UserController::class);
 Route::post('/user/auth', [UserController::class, 'authenticate']);
+Route::post('/users', [UserController::class, 'store']);
+Route::resource('/logout', [UserController::class]);
