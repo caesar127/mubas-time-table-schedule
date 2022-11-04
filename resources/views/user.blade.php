@@ -4,7 +4,7 @@
 </style>
 <div style="background: #fff; width: 40%; border-radius: 20px; margin-top:5%; margin-left:30%;">
     <div style="justify-content: space-between; display: flex; padding: 10px;">
-        <h1 style="font-weight: 500; font-size: x-large; color: #545454;">UPDATE ROOM</h1>
+        <h1 style="font-weight: 500; font-size: x-large; color: #545454;">CREATE USER</h1>
     </div>
     <form method="POST" action="/users" style="padding: 20px;">
         @csrf
