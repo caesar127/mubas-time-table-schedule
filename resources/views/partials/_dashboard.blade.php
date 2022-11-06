@@ -21,6 +21,7 @@
     display: flex;
     justify-content: space-between;
   }
+  tr:last-child { justify-content: normal; }
   td{
     margin: 5px;
     margin-right: 20px;
